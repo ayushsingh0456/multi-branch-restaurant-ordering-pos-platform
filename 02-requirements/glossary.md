@@ -4,7 +4,7 @@
 
 | Field | Value |
 |---|---|
-| Document ID | BRS-REQ-GLO |
+| Document ID | RS-REQ-GLO |
 | Version | 1.4 |
 | Status | Approved |
 | Owner | Business Analyst |

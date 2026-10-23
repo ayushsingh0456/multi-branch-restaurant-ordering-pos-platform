@@ -4,7 +4,7 @@
 
 | Field | Value |
 |---|---|
-| Document ID | BRS-DEL-RAID |
+| Document ID | RS-DEL-RAID |
 | Version | 2.3 |
 | Status | Active (reviewed weekly at the CCB) |
 | Owner | Delivery Manager (co-maintained with the Business Analyst) |
@@ -55,8 +55,8 @@
 |---|---|---|---|---|
 | DEP-01 | Sandbox and OAuth credentials for each branch's POS account | Cloud POS provider | S2 | Delivered 2026-03-25 |
 | DEP-02 | Hosted checkout, card reader SDK, sandbox and test cards | Card payment provider | S3 | Delivered 2026-03-20 |
-| DEP-03 | App store accounts owned by the restaurant group | the restaurant group | S5 | Delivered 2026-04-30 |
-| DEP-04 | Branch Wi-Fi with 4G fallback router at all four branches | the restaurant group facilities | Pilot | Fallback installed at all branches by 2026-07-31 (after INC-2026-004) |
+| DEP-03 | App store accounts owned by the restaurant group | The restaurant group | S5 | Delivered 2026-04-30 |
+| DEP-04 | Branch Wi-Fi with 4G fallback router at all four branches | The restaurant group facilities | Pilot | Fallback installed at all branches by 2026-07-31 (after INC-2026-004) |
 | DEP-05 | Legal wording for the order button | Legal counsel | S4 | Delivered 2026-04-22 |
 
 ## Related documents

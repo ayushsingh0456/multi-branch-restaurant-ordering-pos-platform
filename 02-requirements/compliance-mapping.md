@@ -4,7 +4,7 @@
 
 | Field | Value |
 |---|---|
-| Document ID | BRS-REQ-CMP |
+| Document ID | RS-REQ-CMP |
 | Version | 1.3 |
 | Status | Approved |
 | Owner | Business Analyst |

@@ -4,7 +4,7 @@
 
 | Field | Value |
 |---|---|
-| Document ID | BRS-QA-01 |
+| Document ID | RS-QA-01 |
 | Version | 1.4 |
 | Status | Approved |
 | Owner | QA Lead (co-authored with the Business Analyst) |

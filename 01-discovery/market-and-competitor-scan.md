@@ -4,7 +4,7 @@
 
 | Field | Value |
 |---|---|
-| Document ID | BRS-DIS-05 |
+| Document ID | RS-DIS-05 |
 | Version | 1.1 |
 | Status | Approved |
 | Owner | Business Analyst |
@@ -18,7 +18,7 @@
 
 ### Purpose and scope
 
-This scan answers two questions for the sponsor: how do comparable lunch businesses let customers order ahead, and should the restaurant group build its own platform or buy one? It covers four anonymized competitors near the platform's branches and four solution options. Competitors are described by type, never by name. Vendor fees are the quotes the restaurant group received in January 2026; like every figure in this case study, they are fictional.
+This scan answers two questions for the sponsor: how do comparable lunch businesses let customers order ahead, and should the restaurant group build its own platform or buy one? It covers four anonymized competitors near the platform's branches and four solution options. Competitors are described by type, never by name. Vendor fees are the quotes the restaurant group received in January 2026; like every figure in this case study, they are changed.
 
 ## 1. Context from discovery
 

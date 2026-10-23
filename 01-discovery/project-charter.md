@@ -4,7 +4,7 @@
 
 | Field | Value |
 |---|---|
-| Document ID | BRS-DIS-01 |
+| Document ID | RS-DIS-01 |
 | Version | 1.2 |
 | Status | Approved |
 | Owner | Business Analyst |
@@ -20,13 +20,13 @@
 
 ### Purpose and scope of this document
 
-This charter authorizes the platform Release 1 project. It states why the project exists and sets the objectives, scope boundaries, milestones, budget envelope and governance that every later artifact traces to. The Business Analyst drafted it from discovery evidence (see [current vs future state](current-vs-future-state.md)) and maintains it; the sponsor and the Product Owner approve it. Detailed requirements live in the [BRD](../02-requirements/BRD.md) and the [SRS](../02-requirements/SRS.md), not here.
+This charter authorizes Release 1 project. It states why the project exists and sets the objectives, scope boundaries, milestones, budget envelope and governance that every later artifact traces to. The Business Analyst drafted it from discovery evidence (see [current vs future state](current-vs-future-state.md)) and maintains it; the sponsor and the Product Owner approve it. Detailed requirements live in the [BRD](../02-requirements/BRD.md) and the [SRS](../02-requirements/SRS.md), not here.
 
-the restaurant group, its branches, its people and all figures in this case study are fictional.
+The restaurant group, its branches, its people and all figures in this case study are changed.
 
 ## 1. Vision statement
 
-> For a group of four grill-bowl and wrap restaurants whose lunch customers either queue or phone ahead, **the platform** is one ordering and till platform that lets customers order and pay for an exact pickup minute the kitchen can meet, and puts every order from every channel on one live kitchen board. Unlike marketplace apps, the platform charges no commission per order, keeps the relationship with the customer, and runs the counter on the same system as the online orders.
+> For a group of four grill-bowl and wrap restaurants whose lunch customers either queue or phone ahead, **The platform** is one ordering and till platform that lets customers order and pay for an exact pickup minute the kitchen can meet, and puts every order from every channel on one live kitchen board. Unlike marketplace apps, the platform charges no commission per order, keeps the relationship with the customer, and runs the counter on the same system as the online orders.
 
 ## 2. Problem statement
 
@@ -81,7 +81,7 @@ Applications: Customer Mobile App (iOS and Android), Customer Web Ordering panel
 
 ### Assumptions and constraints
 
-- the restaurant group keeps its existing cloud POS and invoicing provider (one account per branch) and its card payment provider; the platform integrates with both and replaces neither.
+- The restaurant group keeps its existing cloud POS and invoicing provider (one account per branch) and its card payment provider; the platform integrates with both and replaces neither.
 - One legal entity owns the four branches; prices include VAT.
 - The build is delivered by an external delivery partner under a fixed-price contract, in six two-week sprints, followed by a monthly support retainer. Scope changes go through change control (section 9).
 - Each branch has one production line. The rush factor stands in for the extra lunch staff (A-01).
@@ -119,7 +119,7 @@ The full register, power/interest grid and RACI are in the [stakeholder register
 
 ## 7. Budget envelope (illustrative)
 
-Figures are fictional and show how the envelope was framed for the sponsor. Running costs after go-live (hosting, email, POS integration, error monitoring and the support retainer, about EUR 41,040 a year) are in the [BRD](../02-requirements/BRD.md#11-benefits-and-costbenefit-view) and are not part of this envelope.
+Figures are changed and show how the envelope was framed for the sponsor. Running costs after go-live (hosting, email, POS integration, error monitoring and the support retainer, about EUR 41,040 a year) are in the [BRD](../02-requirements/BRD.md#11-benefits-and-costbenefit-view) and are not part of this envelope.
 
 | Line item | Basis | Amount (EUR) | Spent to 2026-09-30 |
 |---|---|---|---|

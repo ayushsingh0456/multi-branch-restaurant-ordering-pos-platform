@@ -4,7 +4,7 @@
 
 | Field | Value |
 |---|---|
-| Document ID | BRS-DES-ERD |
+| Document ID | RS-DES-ERD |
 | Version | 1.3 |
 | Status | Approved |
 | Owner | Business Analyst (co-authored with the Tech Lead) |

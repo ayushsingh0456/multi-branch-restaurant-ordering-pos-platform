@@ -4,7 +4,7 @@
 
 | Field | Value |
 |---|---|
-| Document ID | BRS-SPEC-001-PLAN |
+| Document ID | RS-SPEC-001-PLAN |
 | Version | 1.2 |
 | Status | Approved |
 | Owner | Business Analyst |

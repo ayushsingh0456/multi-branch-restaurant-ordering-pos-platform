@@ -4,7 +4,7 @@
 
 | Field | Value |
 |---|---|
-| Document ID | BRS-DES-SEQ |
+| Document ID | RS-DES-SEQ |
 | Version | 1.3 |
 | Status | Approved |
 | Owner | Business Analyst (co-authored with the Tech Lead) |

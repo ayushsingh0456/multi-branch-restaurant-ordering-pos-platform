@@ -4,7 +4,7 @@
 
 | Field | Value |
 |---|---|
-| Document ID | BRS-DEL-DOR-DOD |
+| Document ID | RS-DEL-DOR-DOD |
 | Version | 1.3 |
 | Status | Active |
 | Owner | Business Analyst (co-owned with the QA Lead) |

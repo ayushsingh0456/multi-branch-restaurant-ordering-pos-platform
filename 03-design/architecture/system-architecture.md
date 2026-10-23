@@ -4,7 +4,7 @@
 
 | Field | Value |
 |---|---|
-| Document ID | BRS-DES-ARCH |
+| Document ID | RS-DES-ARCH |
 | Version | 1.3 |
 | Status | Approved |
 | Owner | Tech Lead (co-authored with the Business Analyst) |

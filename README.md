@@ -4,13 +4,13 @@
 
 > **Case study of a real project.** Client details are withheld, and names, figures and records in this repository are changed or synthetic. Compliance content is written to show how requirements support regulations; it is not legal or tax advice.
 
-> **Read it in the browser.** The [case study page](https://ayushsingh0456.github.io/case-studies/brasa.html) walks through the work, and the [document library](https://ayushsingh0456.github.io/library.html?project=restaurant) opens every file here with diagrams rendered. Formatted PDFs: [BRD](https://ayushsingh0456.github.io/assets/docs/brasa-BRD.pdf) · [SRS](https://ayushsingh0456.github.io/assets/docs/brasa-SRS.pdf).
+> **Read it in the browser.** The [case study page](https://ayushsingh0456.github.io/case-studies/restaurant-pos.html) walks through the work, and the [document library](https://ayushsingh0456.github.io/library.html?project=restaurant) opens every file here with diagrams rendered. Formatted PDFs: [BRD](https://ayushsingh0456.github.io/assets/docs/restaurant-pos-BRD.pdf) · [SRS](https://ayushsingh0456.github.io/assets/docs/restaurant-pos-SRS.pdf).
 
 ---
 
 ## The product in one paragraph
 
-the restaurant group sells grill bowls and wraps from four branches in one EU country. Before the platform, lunch customers either queued or phoned, the counter wrote orders on paper, and the kitchen guessed when to start. The platform is one platform with four apps:
+The restaurant group sells grill bowls and wraps from four branches in one EU country. Before the platform, lunch customers either queued or phoned, the counter wrote orders on paper, and the kitchen guessed when to start. The platform is one platform with four apps:
 - a **Customer Mobile App** (Flutter, iOS and Android) and a **Customer Web Ordering panel** (React), where customers sign in with an emailed code, customize items, pick an exact pickup minute and pay online or at the counter;
 - a **Counter Staff iPad till** (Flutter, landscape) for walk-in and dine-in orders by cash or card;
 - an **Admin Panel** (React) for Administrators and Managers, with live kitchen and counter boards.

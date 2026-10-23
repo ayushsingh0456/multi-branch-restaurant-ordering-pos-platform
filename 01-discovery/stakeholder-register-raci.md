@@ -4,7 +4,7 @@
 
 | Field | Value |
 |---|---|
-| Document ID | BRS-DIS-02 |
+| Document ID | RS-DIS-02 |
 | Version | 1.3 |
 | Status | Approved |
 | Owner | Business Analyst |
@@ -28,14 +28,14 @@ Influence and interest use High, Medium and Low. Attitude uses Champion, Support
 
 | ID | Stakeholder (role) | Organization | Interest in the platform | Influence | Interest level | Attitude | Engagement strategy | Channel and frequency |
 |---|---|---|---|---|---|---|---|---|
-| STK-01 | Owner and Managing Director (sponsor) | the restaurant group | Lunch growth without more counter staff; payback; brand | High | High | Champion | Decisions framed as options with cost and risk; business case owned with the Finance Controller | Steering monthly; one-page status every 2 weeks |
-| STK-02 | Operations Director (Product Owner), see PER-06 | the restaurant group | One way of working at four branches; numbers to steer by | High | High | Champion | Daily collaboration; BA prepares refinement-ready stories and CR impact analyses | Stand-up; weekly refinement; CCB chair |
-| STK-03 | Finance Controller, see PER-07 | the restaurant group | VAT, receipts, refunds, reconciliation, running costs | High (veto on money rules) | High | Cautious, then Supportive after DEC-10 and DEC-11 | Worked examples for every money rule; sign-off on WE-1; reconciliation design review | Money-rule review per sprint; CCB for money CRs |
-| STK-04 | Branch Managers (four), see PER-05 | the restaurant group | A calm rush; fair treatment of walk-ins and online customers; control in trouble | Medium to High | High | Supportive; Station Quarter Skeptical about online orders until CR-006 | Observation at their branches; UAT participants; first say on operational settings | Branch round every 2 weeks from May; UAT |
-| STK-05 | Kitchen leads (four), see PER-04 | the restaurant group | A board they can read at 2 m with gloves on; orders in the right order | Medium | High | Cautious ("another screen") | Co-design of the kitchen board; validate kitchen-minute model and rush factor | Rush observations; board walkthroughs per sprint from S3 |
-| STK-06 | Counter staff (about 40 across the branches), see PER-03 | the restaurant group | Fast tiles; one queue; no blame for money mistakes | Low individually, High collectively | High | Mixed: 6 of 8 interviewed positive; worried about refund disputes | Timed tasks in the prototype test; no refunds for Counter Staff (DEC-06); color coding on boards | Prototype test; UAT-04 and UAT-05; release notes on the till |
+| STK-01 | Owner and Managing Director (sponsor) | The restaurant group | Lunch growth without more counter staff; payback; brand | High | High | Champion | Decisions framed as options with cost and risk; business case owned with the Finance Controller | Steering monthly; one-page status every 2 weeks |
+| STK-02 | Operations Director (Product Owner), see PER-06 | The restaurant group | One way of working at four branches; numbers to steer by | High | High | Champion | Daily collaboration; BA prepares refinement-ready stories and CR impact analyses | Stand-up; weekly refinement; CCB chair |
+| STK-03 | Finance Controller, see PER-07 | The restaurant group | VAT, receipts, refunds, reconciliation, running costs | High (veto on money rules) | High | Cautious, then Supportive after DEC-10 and DEC-11 | Worked examples for every money rule; sign-off on WE-1; reconciliation design review | Money-rule review per sprint; CCB for money CRs |
+| STK-04 | Branch Managers (four), see PER-05 | The restaurant group | A calm rush; fair treatment of walk-ins and online customers; control in trouble | Medium to High | High | Supportive; Station Quarter Skeptical about online orders until CR-006 | Observation at their branches; UAT participants; first say on operational settings | Branch round every 2 weeks from May; UAT |
+| STK-05 | Kitchen leads (four), see PER-04 | The restaurant group | A board they can read at 2 m with gloves on; orders in the right order | Medium | High | Cautious ("another screen") | Co-design of the kitchen board; validate kitchen-minute model and rush factor | Rush observations; board walkthroughs per sprint from S3 |
+| STK-06 | Counter staff (about 40 across the branches), see PER-03 | The restaurant group | Fast tiles; one queue; no blame for money mistakes | Low individually, High collectively | High | Mixed: 6 of 8 interviewed positive; worried about refund disputes | Timed tasks in the prototype test; no refunds for Counter Staff (DEC-06); color coding on boards | Prototype test; UAT-04 and UAT-05; release notes on the till |
 | STK-07 | Customers (lunch regulars, students, office workers), see PER-01 and PER-02 | Public | Honest pickup times, the price before paying, allergens, an easy cancel | High collectively (OBJ-01) | Medium | Supportive: 64% of surveyed customers would order ahead in an app | Survey (n = 212); prototype test with 12 customers; app store reviews | Survey; release notes; support email |
-| STK-08 | Marketing coordinator | the restaurant group | App adoption, store listing, QR material | Low | Medium | Supportive | Involved in launch material; raised CR-002 | Monthly adoption review |
+| STK-08 | Marketing coordinator | The restaurant group | App adoption, store listing, QR material | Low | Medium | Supportive | Involved in launch material; raised CR-002 | Monthly adoption review |
 | STK-09 | External tax adviser | Adviser to the Finance Controller | VAT treatment, tip handling, receipt rules | Medium (veto on tax treatment) | Low | Neutral | Questions batched through the Finance Controller; confirmation in writing (A-04) | As needed |
 | STK-10 | Data Protection Officer | External service | Lawful basis, minimization, erasure, processors, DPIA | High (veto on personal-data handling) | Medium | Cautious | Privacy review per epic; DPIA before go-live; review of push and email content | Monthly check-in; per epic |
 | STK-11 | Legal counsel | External | Consumer-law wording: order button, cancellation, distance-sale information | Medium | Low | Neutral | Wording requests with screenshots and the rule text (A-06, DEP-05) | As needed |

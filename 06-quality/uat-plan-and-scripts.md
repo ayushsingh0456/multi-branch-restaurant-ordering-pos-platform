@@ -4,7 +4,7 @@
 
 | Field | Value |
 |---|---|
-| Document ID | BRS-QA-03 |
+| Document ID | RS-QA-03 |
 | Version | 1.3 |
 | Status | Signed off (R1, R1.1, R1.2) |
 | Owner | Business Analyst |

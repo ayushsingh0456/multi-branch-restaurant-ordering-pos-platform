@@ -4,7 +4,7 @@
 
 | Field | Value |
 |---|---|
-| Document ID | BRS-REQ-BRD |
+| Document ID | RS-REQ-BRD |
 | Version | 1.2 |
 | Status | Approved |
 | Owner | Business Analyst |
@@ -24,7 +24,7 @@
 
 ## 1. Executive summary
 
-the restaurant group runs four grill-bowl and wrap restaurants in one EU member state: Market Hall, Station Quarter, Riverside and Campus. Before the platform, a customer who wanted to skip the lunch queue had to phone. The counter wrote the order on paper, the kitchen guessed when to start, and walk-ins and phone orders competed at the same POS screen. Discovery in January 2026 measured the cost:
+The restaurant group runs four grill-bowl and wrap restaurants in one EU member state: Market Hall, Station Quarter, Riverside and Campus. Before the platform, a customer who wanted to skip the lunch queue had to phone. The counter wrote the order on paper, the kitchen guessed when to start, and walk-ins and phone orders competed at the same POS screen. Discovery in January 2026 measured the cost:
 
 | Pain point | Baseline (discovery, January 2026) |
 |---|---|
@@ -46,7 +46,7 @@ Three scope decisions shape the solution:
 
 ## 2. Business context
 
-the restaurant group sells grill bowls, wraps, sides and drinks for takeaway, with some seating at three branches. About 27,200 orders a month across the four branches, with an average ticket of EUR 13.90. Lunch on weekdays (11:45 to 13:30) brings about 40% of daily orders at Market Hall and Station Quarter.
+The restaurant group sells grill bowls, wraps, sides and drinks for takeaway, with some seating at three branches. About 27,200 orders a month across the four branches, with an average ticket of EUR 13.90. Lunch on weekdays (11:45 to 13:30) brings about 40% of daily orders at Market Hall and Station Quarter.
 
 Four pressures make the old way of working unsustainable:
 - **Customers expect to order ahead.** In the January survey (n = 212), 58% of lunch customers said they had left the queue at least once in the last month, and 64% would use an app to order ahead.
@@ -207,7 +207,7 @@ Tracked with owners and review dates in the [RAID log](../05-delivery/raid-log.m
 
 ## 11. Benefits and cost/benefit view
 
-All figures are fictional and illustrative. They show the logic of the business case, not a forecast.
+All figures are changed and illustrative. They show the logic of the business case, not a forecast.
 
 **Model assumptions.**
 - 326,160 orders a year (27,180 a month); average ticket EUR 13.90.

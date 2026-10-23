@@ -4,7 +4,7 @@
 
 | Field | Value |
 |---|---|
-| Document ID | BRS-REQ-RTM |
+| Document ID | RS-REQ-RTM |
 | Version | 1.4 (generated for SRS v1.4) |
 | Status | Baselined |
 | Owner | Business Analyst |

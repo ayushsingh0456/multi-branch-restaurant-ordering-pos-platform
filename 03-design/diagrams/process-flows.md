@@ -4,7 +4,7 @@
 
 | Field | Value |
 |---|---|
-| Document ID | BRS-DES-PF |
+| Document ID | RS-DES-PF |
 | Version | 1.3 |
 | Status | Approved |
 | Owner | Business Analyst |

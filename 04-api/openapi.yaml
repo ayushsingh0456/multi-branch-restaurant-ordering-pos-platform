@@ -1,10 +1,10 @@
-# Multi-Branch Restaurant Ordering & POS Platform API contract (OpenAPI 3.1). Fictional case study; synthetic data only.
+# Multi-Branch Restaurant Ordering & POS Platform API contract (OpenAPI 3.1). Case study of a real project (names and data changed); synthetic data only.
 openapi: 3.1.0
 info:
   title: the platform API
   version: 1.4.0
-  summary: One API for the platform customer apps, the iPad till and the Admin Panel (fictional case study).
-  description: Contract-first REST API for the platform, the fictional pickup-ordering and till platform of the restaurant group. All data is synthetic.
+  summary: One API for the platform customer apps, the iPad till and the Admin Panel (names and data changed).
+  description: Contract-first REST API for the platform, the pickup-ordering and till platform of the restaurant group. All data is synthetic.
     Money is integer euro cents including VAT. Times are the branch's local time unless a full date-time is given. Errors use RFC 9457 problem
     details with the codes in api-guidelines.md. Every operation carries x-requirements (SRS IDs) and x-roles. Live updates are Socket.IO events,
     described in realtime-events.md.

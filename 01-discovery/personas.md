@@ -4,7 +4,7 @@
 
 | Field | Value |
 |---|---|
-| Document ID | BRS-DIS-03 |
+| Document ID | RS-DIS-03 |
 | Version | 1.3 |
 | Status | Approved |
 | Owner | Business Analyst |
@@ -20,7 +20,7 @@
 
 ### Purpose and scope
 
-These seven personas summarize who the platform serves and what "better" means to each of them. The Business Analyst and the UX Designer built them from 24 interviews, 8 rush-hour observation logs at Market Hall and Station Quarter, the customer survey (n = 212) and the prototype test with 12 customers and 6 staff (see [current vs future state](current-vs-future-state.md)). Each persona is a composite: no persona describes a real individual, and all names and quotes are fictional. Pain references (P1 to P12) point to the pain points in [current vs future state](current-vs-future-state.md#3-pain-points).
+These seven personas summarize who the platform serves and what "better" means to each of them. The Business Analyst and the UX Designer built them from 24 interviews, 8 rush-hour observation logs at Market Hall and Station Quarter, the customer survey (n = 212) and the prototype test with 12 customers and 6 staff (see [current vs future state](current-vs-future-state.md)). Each persona is a composite: no persona describes a real individual, and all names and quotes are changed. Pain references (P1 to P12) point to the pain points in [current vs future state](current-vs-future-state.md#3-pain-points).
 
 The team uses the personas to write and order user stories, to choose UAT participants, and to settle design debates ("could Amir do this with a queue of eight people in front of him?").
 

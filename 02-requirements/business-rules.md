@@ -4,7 +4,7 @@
 
 | Field | Value |
 |---|---|
-| Document ID | BRS-REQ-BR |
+| Document ID | RS-REQ-BR |
 | Version | 1.4 (aligned with SRS v1.4) |
 | Status | Approved (baselined) |
 | Owner | Business Analyst |

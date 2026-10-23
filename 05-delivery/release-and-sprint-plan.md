@@ -4,7 +4,7 @@
 
 | Field | Value |
 |---|---|
-| Document ID | BRS-DEL-PLAN |
+| Document ID | RS-DEL-PLAN |
 | Version | 1.5 |
 | Status | Active |
 | Owner | Delivery Manager (co-authored with the Business Analyst) |

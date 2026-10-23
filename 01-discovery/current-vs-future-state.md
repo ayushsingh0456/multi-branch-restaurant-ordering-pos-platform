@@ -4,7 +4,7 @@
 
 | Field | Value |
 |---|---|
-| Document ID | BRS-DIS-04 |
+| Document ID | RS-DIS-04 |
 | Version | 1.2 |
 | Status | Approved |
 | Owner | Business Analyst |

@@ -4,7 +4,7 @@
 
 | Field | Value |
 |---|---|
-| Document ID | BRS-DEL-DEC |
+| Document ID | RS-DEL-DEC |
 | Version | 1.6 |
 | Status | Active |
 | Owner | Business Analyst |

@@ -4,7 +4,7 @@
 
 | Field | Value |
 |---|---|
-| Document ID | BRS-DES-SM |
+| Document ID | RS-DES-SM |
 | Version | 1.3 |
 | Status | Approved |
 | Owner | Business Analyst |

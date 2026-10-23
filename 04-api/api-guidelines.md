@@ -4,7 +4,7 @@
 
 | Field | Value |
 |---|---|
-| Document ID | BRS-API-GUIDE |
+| Document ID | RS-API-GUIDE |
 | Version | 1.4 |
 | Status | Approved |
 | Owner | Tech Lead (co-authored with the Business Analyst) |

@@ -4,7 +4,7 @@
 
 | Field | Value |
 |---|---|
-| Document ID | BRS-DEL-US-06 |
+| Document ID | RS-DEL-US-06 |
 | Version | 1.3 |
 | Status | Baselined |
 | Owner | Business Analyst |
