@@ -78,7 +78,7 @@ Scenario: US-036-AC1 Walk-in order with a customization, paid by cash
 Scenario: US-036-AC2 Dine-in exists only on the till
   Given the order panel is empty
   Then the Take away / Dine in toggle is disabled
-  When Amir adds a Beef Brasa Bowl and selects Dine in
+  When Amir adds a Beef Grill Bowl and selects Dine in
   And places the order
   Then the boards show the order with the label "DINE-IN AH"
   And when the kitchen marks it Ready it becomes Collected
@@ -174,7 +174,7 @@ Scenario: US-037-AC7 A lock from a crashed till expires
 ```
 
 **Notes**
-- The previous till deleted canceled orders permanently and left their invoices outstanding. Brasa keeps every canceled order (BR-029, BR-031).
+- The previous till deleted canceled orders permanently and left their invoices outstanding. The platform keeps every canceled order (BR-029, BR-031).
 - Calling up an order while another is being built asks "Put the current order aside?" and keeps it as the device draft; the previous till discarded it.
 
 ### US-038 · Cook from the kitchen board

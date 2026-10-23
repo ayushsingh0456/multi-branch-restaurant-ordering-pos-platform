@@ -1,4 +1,4 @@
-# Sequence Diagrams: Brasa
+# Sequence Diagrams: Multi-Branch Restaurant Ordering & POS Platform
 
 ## Document control
 

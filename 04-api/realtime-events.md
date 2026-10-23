@@ -1,4 +1,4 @@
-# Realtime Events: Brasa
+# Realtime Events: Multi-Branch Restaurant Ordering & POS Platform
 
 ## Document control
 
@@ -16,7 +16,7 @@
 | 1.0 | 2026-03-27 | R1 events; clients joined rooms with a `join` message |
 | 1.1 | 2026-08-07 | CR-004 after INC-2026-004: server-side room membership, branch sequence on every event, heartbeat, snapshot on connect and gap; `join` removed |
 
-**Purpose and scope.** The contract for live updates between the Brasa server and the boards, tills and customer apps: transport, rooms, ordering guarantees, the client algorithm and the event catalog. The design rationale is [ADR-002](../03-design/architecture/adr/ADR-002-live-updates-snapshot-and-sequence.md); the rules are BR-020 and BR-045.
+**Purpose and scope.** The contract for live updates between the platform server and the boards, tills and customer apps: transport, rooms, ordering guarantees, the client algorithm and the event catalog. The design rationale is [ADR-002](../03-design/architecture/adr/ADR-002-live-updates-snapshot-and-sequence.md); the rules are BR-020 and BR-045.
 
 ## 1. Transport and rooms
 

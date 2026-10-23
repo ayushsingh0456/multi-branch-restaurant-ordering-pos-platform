@@ -1,4 +1,4 @@
-# Glossary: Brasa
+# Glossary: Multi-Branch Restaurant Ordering & POS Platform
 
 ## Document control
 
@@ -20,12 +20,12 @@
 | Add-on | An extra a customer can select for an item, such as Halloumi or Garlic sauce. It has a price and allergens and adds its price to each unit. | BR-022; shared by all branches |
 | Allergen | One of the 14 allergen groups listed in Annex II of Regulation (EU) No 1169/2011. | BR-028 |
 | Anchor | The later of an order's **pickup minute** and its ready time. The **reminder ladder** counts from it. | BR-040 |
-| Branch | One restaurant of Brasa Grill, with its own menu, opening hours, POS account and tills. Branch IDs are LOC-01 to LOC-04. | FR-BRN-01 |
+| Branch | One restaurant of the restaurant group, with its own menu, opening hours, POS account and tills. Branch IDs are LOC-01 to LOC-04. | FR-BRN-01 |
 | Branch code | Two letters used in order numbers: MH (Market Hall), SQ (Station Quarter), RS (Riverside), CP (Campus). | BR-033 |
 | Busy window | A continuous range of today's **kitchen minutes** that a Manager blocks for new orders, for example during an equipment failure. One per branch per day. | BR-015 |
 | Call-up | Opening an unpaid order on a till to change or settle it. The order is locked for other tills while it is called up. | BR-034 |
 | Cancellation cutoff | Minutes before the pickup minute after which a customer can no longer cancel. Default 15. Stored on the order at placement. | BR-030 |
-| Cancellation receipt | The POS document that reverses an invoiced sale. Brasa never deletes a sale. | BR-031 |
+| Cancellation receipt | The POS document that reverses an invoiced sale. The platform never deletes a sale. | BR-031 |
 | Channel | Where an order was placed: App, Web or Till. | FR-TIL-09 |
 | Closure date | A date on which a branch takes no customer orders, overriding the weekly hours. | BR-009 |
 | Collected | The order has been handed over to the customer. Set by Deliver on the till, by settling a Ready order at the counter, or automatically for dine-in and prepaid till orders when marked Ready. | BR-029, BR-032 |
@@ -60,7 +60,7 @@
 | Snapshot | The full live state of a branch with its sequence number, loaded by boards and tills after every connect, reconnect or gap. | BR-045 |
 | Sold out today | A product a Manager has made unavailable until the start of the next day. | FR-MNU-08 |
 | Takeaway | An order collected and eaten elsewhere; the default order type. | BR-024 |
-| Till | The Counter Staff iPad app in landscape. Informally "the iPad" or "the POS"; in Brasa documents "POS" means only the provider's system. | FR-TIL-01 |
+| Till | The Counter Staff iPad app in landscape. Informally "the iPad" or "the POS"; in the platform documents "POS" means only the provider's system. | FR-TIL-01 |
 | Tip | A voluntary amount added by the customer, recorded apart from the order total and outside VAT. | BR-036 |
 | VAT per rate group | Extracting VAT once from the gross total of all lines at the same rate, instead of per line. | BR-025 |
 
@@ -69,7 +69,7 @@
 | Term | Definition | Notes and references |
 |---|---|---|
 | Branch sequence number | A number that increases by one with every live event at a branch. Clients use it to detect missed events. | BR-045, [realtime events](../04-api/realtime-events.md) |
-| Hosted checkout | The card payment provider's payment page; card data is entered there, never in Brasa. | NFR-SEC-03 |
+| Hosted checkout | The card payment provider's payment page; card data is entered there, never in the platform. | NFR-SEC-03 |
 | Idempotency key | A client-chosen key that makes a repeated request return the original result instead of acting twice. | [API guidelines](../04-api/api-guidelines.md) |
 | Outbox | A table of pending work (for example invoices) written in the same transaction as the change that caused it, processed by a worker with retries. | ADR-003 |
 | Payment attempt | One try to take payment for an order, with its own ID that is the provider's merchant reference. | BR-035 |
@@ -88,7 +88,7 @@
 | EAA | European Accessibility Act |
 | FCM | Firebase Cloud Messaging |
 | PCI DSS, SAQ | Payment Card Industry Data Security Standard, self-assessment questionnaire |
-| POS | Point of sale: in Brasa documents, the cloud POS and invoicing provider |
+| POS | Point of sale: in the platform documents, the cloud POS and invoicing provider |
 | PSP | Payment service provider: the card payment provider |
 | RTM | Requirements traceability matrix |
 | SCA, PSD2 | Strong customer authentication, revised Payment Services Directive |

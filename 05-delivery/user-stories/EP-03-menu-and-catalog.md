@@ -40,7 +40,7 @@ Version 1.1 added US-017 for allergen information before purchase (CR-001). Vers
 | US-018 | Mark an item sold out for today | PER-05 Marta Kowalska (MGR) | Should | 2 | S6 |
 | **Total** | | | | **20** | |
 
-Shared test data: categories Grill Bowls, Wraps and Sides (count toward kitchen time) and Drinks (does not). Products include Chicken Grill Bowl 9.40, Beef Brasa Bowl 10.90, Halloumi Veggie Bowl 9.20, Chicken Wrap 7.90, Falafel Wrap 7.60, Sparkling lemonade 0.33 l 2.90 and Still water 0.5 l 2.40 with a Bottle deposit of 0.25. Add-ons include Halloumi 1.50, Extra chicken 2.20, Feta 1.10, Avocado 1.80 and Garlic sauce 0.50. Synthetic VAT rates: food 10%, drinks 20%.
+Shared test data: categories Grill Bowls, Wraps and Sides (count toward kitchen time) and Drinks (does not). Products include Chicken Grill Bowl 9.40, Beef Grill Bowl 10.90, Halloumi Veggie Bowl 9.20, Chicken Wrap 7.90, Falafel Wrap 7.60, Sparkling lemonade 0.33 l 2.90 and Still water 0.5 l 2.40 with a Bottle deposit of 0.25. Add-ons include Halloumi 1.50, Extra chicken 2.20, Feta 1.10, Avocado 1.80 and Garlic sauce 0.50. Synthetic VAT rates: food 10%, drinks 20%.
 
 ## Stories
 
@@ -175,23 +175,23 @@ Scenario Outline: US-015-AC4 Names are unique
 | Dependencies | US-010, US-014 |
 
 **Story**
-As an Administrator, I want each product and add-on to exist as an article in the branch's POS account with the same name, price, VAT rate and status, so that invoices and the POS reports match what Brasa sold.
+As an Administrator, I want each product and add-on to exist as an article in the branch's POS account with the same name, price, VAT rate and status, so that invoices and the POS reports match what the platform sold.
 
 **Acceptance criteria**
 
 ```gherkin
 Scenario: US-016-AC1 A new product creates its POS article
   Given Market Hall is connected to its POS account
-  When Paul creates "Beef Brasa Bowl" at 10.90 with no article mapping
-  Then within 5 minutes an article "Beef Brasa Bowl" at 10.90 and 10% exists in the Market Hall POS account
+  When Paul creates "Beef Grill Bowl" at 10.90 with no article mapping
+  Then within 5 minutes an article "Beef Grill Bowl" at 10.90 and 10% exists in the Market Hall POS account
   And the product shows "Linked to POS article 4417"
 
 Scenario: US-016-AC2 Price and VAT changes are pushed
-  When Paul changes the Beef Brasa Bowl price to 11.20
+  When Paul changes the Beef Grill Bowl price to 11.20
   Then the POS article shows 11.20 within 5 minutes
 
 Scenario: US-016-AC3 Deactivation is pushed
-  When Paul deactivates the Beef Brasa Bowl
+  When Paul deactivates the Beef Grill Bowl
   Then the POS article is deactivated within 5 minutes
 
 Scenario: US-016-AC4 A failed sync is visible and does not stop sales

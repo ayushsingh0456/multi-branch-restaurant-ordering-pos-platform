@@ -1,4 +1,4 @@
-# UAT Plan and Scripts: Brasa
+# UAT Plan and Scripts: Multi-Branch Restaurant Ordering & POS Platform
 
 ## Document control
 
@@ -11,7 +11,7 @@
 | Last updated | 2026-09-25 |
 | Reviewers | Product Owner (Operations Director); QA Lead; Branch Managers; Finance Controller |
 
-**Purpose and scope.** User acceptance testing shows that Brasa supports the real work of customers, counter staff, kitchen leads, managers and head office, in their language and at their speed, before each release goes live. This document holds the plan, the 12 scripts, the results and the sign-offs for R1 (scripts UAT-01 to UAT-09), R1.1 (UAT-10, UAT-11, and UAT-08 re-run for CR-003) and R1.2 (UAT-12).
+**Purpose and scope.** User acceptance testing shows that the platform supports the real work of customers, counter staff, kitchen leads, managers and head office, in their language and at their speed, before each release goes live. This document holds the plan, the 12 scripts, the results and the sign-offs for R1 (scripts UAT-01 to UAT-09), R1.1 (UAT-10, UAT-11, and UAT-08 re-run for CR-003) and R1.2 (UAT-12).
 
 ## 1. Plan
 
@@ -99,7 +99,7 @@ Result: **Passed** 2026-06-05. Kitchen leads asked for the late badge to be larg
 | Step | Action | Expected |
 |---|---|---|
 | 1 | Take a walk-in order: Chicken Wrap without Pickled chili with Feta, and a Sparkling lemonade; take cash | Total 11.90; earliest minute preselected; cash needs a press and hold; order on the kitchen board with your initials |
-| 2 | Take a dine-in Beef Brasa Bowl without Coriander and pay by card with a tip of 1.10 on 10.90 (enter 12.00) | Charged 12.00; tip 1.10; board shows "DINE-IN" with your initials |
+| 2 | Take a dine-in Beef Grill Bowl without Coriander and pay by card with a tip of 1.10 on 10.90 (enter 12.00) | Charged 12.00; tip 1.10; board shows "DINE-IN" with your initials |
 | 3 | Key 186.00 for an order of 18.60 by card | Refused: "That tip is more than half the order. Check the amount." |
 
 Pass criteria: all steps; median time for step 1, from first tap to cash complete, 50 s or less (NFR-USE-02).
@@ -260,7 +260,7 @@ Result: **Passed** 2026-09-23.
 
 ## 4. Sign-off
 
-| Release | Role | Name (fictional) | Decision | Date |
+| Release | Role | Name | Decision | Date |
 |---|---|---|---|---|
 | R1 | Product Owner (Operations Director) | Paul Lindqvist | Accepted | 2026-06-12 |
 | R1 | Finance Controller | Ines Duarte | Accepted | 2026-06-12 |

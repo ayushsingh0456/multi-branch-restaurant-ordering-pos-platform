@@ -1,4 +1,4 @@
-# API Guidelines and Error Catalog: Brasa
+# API Guidelines and Error Catalog: Multi-Branch Restaurant Ordering & POS Platform
 
 ## Document control
 
@@ -11,13 +11,13 @@
 | Last updated | 2026-09-18 |
 | Reviewers | Node.js, Flutter and React developers; QA Lead; UX Designer (messages) |
 
-**Purpose and scope.** The conventions every Brasa API operation follows, and the catalog of error codes with the message each client shows. The contract is [openapi.yaml](openapi.yaml) (OpenAPI 3.1, 42 operations); live events are in [realtime-events.md](realtime-events.md).
+**Purpose and scope.** The conventions every the platform API operation follows, and the catalog of error codes with the message each client shows. The contract is [openapi.yaml](openapi.yaml) (OpenAPI 3.1, 42 operations); live events are in [realtime-events.md](realtime-events.md).
 
 ## 1. Conventions
 
 | Topic | Rule |
 |---|---|
-| Base URL and version | `https://api.brasa.example/v1` (fictional). Changes inside `/v1` are additive only; removal needs `/v2` and six months' notice (NFR-MNT-02). |
+| Base URL and version | `https://api.restaurant.example/v1`. Changes inside `/v1` are additive only; removal needs `/v2` and six months' notice (NFR-MNT-02). |
 | Contract first | A change starts in `openapi.yaml`, with `x-requirements` naming the SRS IDs and `x-roles` the user classes. CI validates the file and diffs it against the last release. |
 | Format | JSON, camelCase, UTF-8. Unknown fields in requests are ignored, and fields the server owns (prices, totals, status) are never read from the client (BR-027). |
 | Money | Integer euro cents, VAT included unless the name says net (`grossCents`, `netCents`, `vatCents`). Rates are per-mille (`vatRatePermille = 100` is 10%). |
@@ -42,7 +42,7 @@
 - **Idempotency-Key** is required on unsafe POSTs that create something or move money: orders, payment attempts, cancellations, status changes, refunds, products, item options, employees and branches. Keys are stored for 24 hours with the request hash and the response.
   - Same key and same body: the original response is returned, with the header `Idempotent-Replay: true`.
   - Same key and a different body: 422 IDEMPOTENCY_KEY_REUSED.
-- **Payment attempts** are idempotent end to end: the attempt ID is also the provider's idempotency key, so even a request that bypassed Brasa's key store could not charge twice (ADR-003).
+- **Payment attempts** are idempotent end to end: the attempt ID is also the provider's idempotency key, so even a request that bypassed the platform's key store could not charge twice (ADR-003).
 - **Optimistic concurrency** for till edits: `PATCH /orders/{orderId}` requires `If-Match` with the order version; a stale version returns 409 VERSION_CONFLICT with the current order.
 - **Database constraints** back the business rules that must never break under concurrency: one reservation per kitchen minute, one successful attempt per order, one invoice per order, one send per notification key ([ERD](../03-design/data/erd.md)).
 

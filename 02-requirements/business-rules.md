@@ -1,4 +1,4 @@
-# Business Rules Catalog and Decision Tables: Brasa
+# Business Rules Catalog and Decision Tables: Multi-Branch Restaurant Ordering & POS Platform
 
 ## Document control
 
@@ -11,7 +11,7 @@
 | Last updated | 2026-09-18 |
 | Reviewers | Product Owner (Operations Director); Tech Lead; QA Lead; Finance Controller; Branch Manager (Station Quarter); Data Protection Officer (external) |
 
-**Purpose and scope.** This document holds the full catalog of the 45 business rules that constrain Brasa's behavior, independent of any screen or API, and decision tables for the rules whose combinations are easy to get wrong. The rule wording is canonical. The decision tables are the specification that developers implement and QA tests against. Every rule needs at least one automated test (NFR-MNT-01).
+**Purpose and scope.** This document holds the full catalog of the 45 business rules that constrain the platform's behavior, independent of any screen or API, and decision tables for the rules whose combinations are easy to get wrong. The rule wording is canonical. The decision tables are the specification that developers implement and QA tests against. Every rule needs at least one automated test (NFR-MNT-01).
 
 ## 1. Conventions
 
@@ -102,7 +102,7 @@ Rules by area:
 | BR-036 | Online tip options are 0, 5, 10 and 15% of the order total, rounded half up to the cent. On the counter card path the tip is the entered amount minus the order total; the entered amount must be at least the total and at most 1.5 x the total. Cash sales and unpaid orders carry no tip. Tips are recorded apart from the order total and outside the VAT calculation. | FR-PAY-02, FR-PAY-04 | US-030, US-031 |
 | BR-037 | An invoice is raised in the POS account of the order's branch only after the payment succeeds, exactly once per paid order (keyed by the order ID). It carries the VAT per rate from BR-025 and the tip as a separate line. | FR-PAY-06, FR-PAY-07 | US-033 |
 | BR-038 | Only the provider's signed webhook (online) or the card reader result verified against the provider's API (counter) marks a payment Succeeded. A browser return or a message from an app never does. | FR-PAY-01, FR-PAY-03 | US-030 |
-| BR-039 | Every provider transaction of the previous day matches exactly one Brasa payment, and every paid order has exactly one invoice. Mismatches are listed for Administrators before 08:00. | FR-PAY-10 | US-035 |
+| BR-039 | Every provider transaction of the previous day matches exactly one the platform payment, and every paid order has exactly one invoice. Mismatches are listed for Administrators before 08:00. | FR-PAY-10 | US-035 |
 
 ### Notifications and no-shows (BR-040 to BR-044)
 

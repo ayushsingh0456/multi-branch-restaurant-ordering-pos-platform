@@ -1,4 +1,4 @@
-# Test Strategy and Plan: Brasa
+# Test Strategy and Plan: Multi-Branch Restaurant Ordering & POS Platform
 
 ## Document control
 
@@ -11,7 +11,7 @@
 | Last updated | 2026-09-26 |
 | Reviewers | Tech Lead; Product Owner (Operations Director); Finance Controller (payments and VAT); Delivery Manager |
 
-**Purpose and scope.** How Brasa is tested from story to release: levels, techniques, environments, data, entry and exit criteria, defect handling and the evidence each release needs. The structure follows the test plan and test strategy items of ISO/IEC/IEEE 29119-3. It covers R1 and the increments R1.1 and R1.2; the test case specification is [test-cases.csv](test-cases.csv) with its [guide](test-cases.md), and acceptance testing is in the [UAT plan](uat-plan-and-scripts.md).
+**Purpose and scope.** How the platform is tested from story to release: levels, techniques, environments, data, entry and exit criteria, defect handling and the evidence each release needs. The structure follows the test plan and test strategy items of ISO/IEC/IEEE 29119-3. It covers R1 and the increments R1.1 and R1.2; the test case specification is [test-cases.csv](test-cases.csv) with its [guide](test-cases.md), and acceptance testing is in the [UAT plan](uat-plan-and-scripts.md).
 
 ## 1. Test items and scope
 
@@ -19,7 +19,7 @@
 |---|---|
 | Customer Mobile App (iOS, Android), Customer Web Ordering panel, Counter Staff iPad till, Admin Panel and boards, API, live gateway, worker jobs | The providers' own systems (POS, card payments, push, email), beyond contract and sandbox tests |
 | Integrations through provider sandboxes: POS, hosted checkout, card reader SDK, refunds, push, email | Fiscal certification of receipts (the POS provider's responsibility, A-03) |
-| Non-functional: performance, reliability, security, privacy, accessibility, compatibility | Penetration testing by Brasa's own team (done by an external firm, reported separately) |
+| Non-functional: performance, reliability, security, privacy, accessibility, compatibility | Penetration testing by the platform's own team (done by an external firm, reported separately) |
 
 ## 2. Risk-based priorities
 
@@ -66,7 +66,7 @@ Test effort follows the product risks. P1 cases run on every build of a release 
 |---|---|
 | Environments | Development; staging with all provider sandboxes; production smoke tests after each release with a test branch hidden from customers |
 | Virtual clock | Staging can set each branch's clock for a test, so time rules (lead time, cutoffs, rush window, reminders, no-show cutoff, DST) are tested deterministically. The clock does not exist in production builds. |
-| Test data | Synthetic only: [test-data](test-data/README.md) holds the catalog and the orders behind every story example, including WE-1, WE-2 and the spec 001 throttle example. Emails use the reserved domains example.com and brasa.example. |
+| Test data | Synthetic only: [test-data](test-data/README.md) holds the catalog and the orders behind every story example, including WE-1, WE-2 and the spec 001 throttle example. Emails use the reserved domains example.com and restaurant.example. |
 | Devices | Lab: iPad 9th generation (oldest supported) and a current iPad; iPhone SE (3rd gen) on iOS 16 and a current iPhone; two Android phones (Android 10 mid-range and current); Chrome, Edge, Firefox and Safari, last two versions |
 | Provider limits | The card payment sandbox cannot simulate every failure (for example refund rejection since its 2026-09-15 update); those cases use recorded responses in contract tests (I-05) |
 

@@ -24,7 +24,7 @@ Version 1.3 aligns the epic with CR-007 (SRS v1.3, raised from INC-2026-009): pa
 | Epic ID | EP-05 |
 | Name | Payments & Invoicing |
 | Module | PAY |
-| Goal | Take every payment exactly once, through channels that keep card data out of Brasa, and give every paid order exactly one valid invoice from the branch's POS account. |
+| Goal | Take every payment exactly once, through channels that keep card data out of the platform, and give every paid order exactly one valid invoice from the branch's POS account. |
 | Objectives | OBJ-05 No-show rate (online payment and Prepay-only); OBJ-06 Walk-in transaction time (fast counter settlement) |
 | Business need | BN-05 |
 | Release | R1; US-032 and US-035 in R1.1 |
@@ -103,7 +103,7 @@ Scenario: US-030-AC5 A declined payment leaves the order unpaid
 ```
 
 **Notes**
-- Payment always completes on the provider's hosted page; Brasa never sees card numbers (NFR-SEC-03).
+- Payment always completes on the provider's hosted page; the platform never sees card numbers (NFR-SEC-03).
 - The tip percentage applies to the order total including VAT and is recorded apart from it (BR-036). The previous app offered 0, 5, 10 and 20%; the owners chose 15% as the top option in discovery.
 - The previous web panel had no online payment. Both apps use the same checkout.
 
@@ -191,7 +191,7 @@ Scenario: US-032-AC1 A timed-out card payment is verified, not repeated
   Then the till shows "Checking the card payment with the provider. Do not charge the card again." and a "Verify payment" button
   And no button on the till can start a new card charge for MH-0150
   When Amir taps "Verify payment"
-  Then Brasa asks the provider about PA-77120, records it Succeeded and MH-0150 is Paid once
+  Then the platform asks the provider about PA-77120, records it Succeeded and MH-0150 is Paid once
 
 Scenario: US-032-AC2 A pending attempt blocks a new one
   Given MH-0150 has attempt PA-77120 in status Pending
@@ -214,7 +214,7 @@ Scenario: US-032-AC5 A declined attempt allows a new one
   Then a new attempt PA-77122 starts
 
 Scenario: US-032-AC6 A double capture pages on-call
-  Given MH-0151 is Paid and the provider reports a second successful transaction for MH-0151, charged on the reader outside the Brasa flow
+  Given MH-0151 is Paid and the provider reports a second successful transaction for MH-0151, charged on the reader outside the platform flow
   Then on-call is paged within 5 minutes
   And the order shows "Two payments received" on the counter board for a Manager to refund one
 ```
@@ -302,7 +302,7 @@ Scenario: US-034-AC1 Canceling an online-paid order refunds it automatically
 Scenario: US-034-AC2 Failed refunds go to a Manager queue
   Given the provider rejects the refund for SQ-0312 three times
   Then "Refunds needing attention" on the counter board lists SQ-0312 with the provider's error
-  And Marta can retry it or mark it "Refunded outside Brasa" with a reference
+  And Marta can retry it or mark it "Refunded outside the platform" with a reference
 
 Scenario: US-034-AC3 A counter-paid order is refunded at the counter and recorded
   Given SQ-0320 was paid by cash, 14.00, and invoiced
@@ -337,18 +337,18 @@ Scenario: US-034-AC5 A refund of a customer cancellation needs no staff action
 | Dependencies | US-032, US-033 |
 
 **Story**
-As the Finance Controller, I want a report each morning that matches yesterday's provider transactions, Brasa payments and POS invoices, so that a double charge or a missing invoice is found the next day, not by a customer.
+As the Finance Controller, I want a report each morning that matches yesterday's provider transactions, the platform payments and POS invoices, so that a double charge or a missing invoice is found the next day, not by a customer.
 
 **Acceptance criteria**
 
 ```gherkin
 Scenario: US-035-AC1 A clean day
-  Given on 2026-09-18 the provider reported 1,284 card transactions, Brasa recorded 1,284 card payments and 2,031 paid orders all have one invoice
+  Given on 2026-09-18 the provider reported 1,284 card transactions, the platform recorded 1,284 card payments and 2,031 paid orders all have one invoice
   When the reconciliation runs at 03:00 on 2026-09-19
   Then the report shows "Matched" for all four branches before 08:00
 
 Scenario: US-035-AC2 An unmatched provider transaction is listed
-  Given the provider reported a transaction of 23.40 at 14:22 on Till 2 at Market Hall with no Brasa payment
+  Given the provider reported a transaction of 23.40 at 14:22 on Till 2 at Market Hall with no the platform payment
   Then the report lists it as "Provider transaction without payment" with time, amount, card ending and device
 
 Scenario: US-035-AC3 A paid order without an invoice is listed

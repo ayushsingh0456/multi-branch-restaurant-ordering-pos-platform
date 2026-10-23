@@ -1,4 +1,4 @@
-# Entity-Relationship Model: Brasa
+# Entity-Relationship Model: Multi-Branch Restaurant Ordering & POS Platform
 
 ## Document control
 
@@ -11,7 +11,7 @@
 | Last updated | 2026-09-18 |
 | Reviewers | Tech Lead; Node.js developers; Data Protection Officer (external) |
 
-**Purpose and scope.** The logical data model of Brasa: entities, keys, relationships and the constraints that enforce business rules. Brasa stores data in MongoDB, so an entity is a collection and "embedded" marks data stored inside its parent document. Field-level definitions, formats and retention are in the [data dictionary](data-dictionary.md).
+**Purpose and scope.** The logical data model of the platform: entities, keys, relationships and the constraints that enforce business rules. The platform stores data in MongoDB, so an entity is a collection and "embedded" marks data stored inside its parent document. Field-level definitions, formats and retention are in the [data dictionary](data-dictionary.md).
 
 ## 1. Model overview
 

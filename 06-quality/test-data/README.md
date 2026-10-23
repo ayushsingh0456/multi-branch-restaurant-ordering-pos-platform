@@ -1,4 +1,4 @@
-# Synthetic Test Data: Brasa
+# Synthetic Test Data: Multi-Branch Restaurant Ordering & POS Platform
 
 ## Document control
 
@@ -11,7 +11,7 @@
 | Last updated | 2026-09-18 |
 | Reviewers | Business Analyst; Finance Controller (prices and VAT) |
 
-**Purpose and scope.** One shared, fully synthetic data set behind the story examples, the test cases, the UAT scripts and the wireframes, so every document describes the same orders. No record comes from a real customer, employee or business. Email addresses use the reserved domains `example.com` (customers) and `brasa.example` (staff). The staging seed job loads these files into a test tenant with the virtual clock.
+**Purpose and scope.** One shared, fully synthetic data set behind the story examples, the test cases, the UAT scripts and the wireframes, so every document describes the same orders. No record comes from a real customer, employee or business. Email addresses use the reserved domains `example.com` (customers) and `restaurant.example` (staff). The staging seed job loads these files into a test tenant with the virtual clock.
 
 ## 1. Files
 

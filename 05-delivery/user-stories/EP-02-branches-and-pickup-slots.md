@@ -188,9 +188,9 @@ As an Administrator, I want to connect each branch to its own account at the clo
 Scenario: US-010-AC1 Connect a branch and import payment methods
   Given Market Hall's POS account has the methods "Cash", "Card (provider)", "Voucher" and "Bank transfer"
   When Paul clicks "Connect POS account" and grants access on the provider's page
-  Then Market Hall shows "Connected to POS account Market Hall (Brasa Grill)"
+  Then Market Hall shows "Connected to POS account Market Hall (the restaurant group)"
   And the methods "Cash" and "Card (provider)" are imported
-  And "Voucher" and "Bank transfer" are listed as "Not used by Brasa"
+  And "Voucher" and "Bank transfer" are listed as "Not used by the platform"
 
 Scenario: US-010-AC2 Expired access raises an alert without stopping trade
   Given Riverside's POS access token has expired
@@ -355,7 +355,7 @@ Scenario: US-012-AC6 A Manager can release the delay block early
 
 **Notes**
 - The previous system had no validation on the busy window and required staff to free delay blocks by hand; afternoons often looked fully booked because nobody did. Both are fixed here.
-- Managers got the busy window in Brasa (the previous system limited it to administrators) because the person who sees the fryer fail is on the floor (DEC-07).
+- Managers got the busy window in the platform (the previous system limited it to administrators) because the person who sees the fryer fail is on the floor (DEC-07).
 
 ### US-013 · Keep rush-hour capacity for walk-in customers
 

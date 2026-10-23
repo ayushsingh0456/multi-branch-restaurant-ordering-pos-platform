@@ -19,7 +19,7 @@
 
 ### Purpose and scope
 
-This document shows how Brasa Grill's four branches worked before Brasa, where that way of working failed, and how Brasa changes it. It covers three AS-IS processes: the phone pre-order, the walk-in order with paper kitchen tickets, and kitchen trouble during the rush. Each pain point is quantified and traced to the objective and requirement that address it, so the business case and the requirements share one evidence base.
+This document shows how the restaurant group's four branches worked before the platform, where that way of working failed, and how the platform changes it. It covers three AS-IS processes: the phone pre-order, the walk-in order with paper kitchen tickets, and kitchen trouble during the rush. Each pain point is quantified and traced to the objective and requirement that address it, so the business case and the requirements share one evidence base.
 
 Detailed TO-BE behavior is specified in the [SRS](../02-requirements/SRS.md) and the [process flows](../03-design/diagrams/process-flows.md). The TO-BE views here are business-level.
 
@@ -151,7 +151,7 @@ flowchart TD
     A4["Pays online or chooses pay at the counter"]
     A5["Gets a push when Ready; collects"]
   end
-  subgraph SYS["Brasa"]
+  subgraph SYS["the platform"]
     B1["Prices the cart on the server (VAT per rate)"]
     B2["Slot engine: kitchen minutes, lead time, rush throttle"]
     B3["Reserves kitchen minutes atomically"]

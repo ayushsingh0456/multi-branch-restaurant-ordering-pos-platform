@@ -21,7 +21,7 @@ In R1, a counter card payment worked like this:
 On Saturday 2026-08-22 (INC-2026-009), the POS provider answered invoice calls in 8 to 20 seconds. Confirmations timed out on the till, which offered "Retry". Retry ran the whole card flow again, so the reader charged the card a second time. Twenty-three customers were charged twice before a customer complaint revealed the problem.
 
 Two design faults made this possible:
-- Payment had no identity of its own, so nothing told the provider or Brasa that the second charge was a repeat.
+- Payment had no identity of its own, so nothing told the provider or the platform that the second charge was a repeat.
 - Invoicing, a slow call to a third party, sat inside the payment confirmation.
 
 ## Decision drivers
@@ -29,7 +29,7 @@ Two design faults made this possible:
 - An order is charged at most once, whatever fails and whoever retries (BR-035).
 - A slow or failed POS never delays or fails a payment (NFR-REL-04).
 - Exactly one invoice per paid order (BR-037).
-- Money anomalies are found by Brasa within minutes, not by customers (NFR-OBS-02).
+- Money anomalies are found by the platform within minutes, not by customers (NFR-OBS-02).
 
 ## Considered options
 
@@ -66,7 +66,7 @@ Option 1 only moved the threshold. Option 3 is a guess: two customers can pay th
 ## Validation
 
 - TC-PAY-007, TC-PAY-008, TC-PAY-009, TC-PAY-011, TC-NFR-005, TC-NFR-014 (alert drill).
-- Production since 1.1.0 (2026-09-07): 21 nights of reconciliation, all matched except one provider transaction made on a reader outside Brasa (explained and closed).
+- Production since 1.1.0 (2026-09-07): 21 nights of reconciliation, all matched except one provider transaction made on a reader outside the platform (explained and closed).
 
 ## Related documents
 

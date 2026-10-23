@@ -16,18 +16,18 @@ TC-IAM-003,"Wrong entries, resend delay and hourly limit",IAM,Boundary,BVA,P1,Vi
 2. ""Too many wrong codes. Send a new code.""; the correct code is refused.
 3. 12:20:00 refused with ""Try again at 12:41""; 12:41:00 accepted; each new code invalidates the previous one.
 4. Disabled at 12:00:59; enabled at 12:01:00.",FR-IAM-02,BR-002,US-001,Automated,Pass,
-TC-IAM-004,Staff email gets the neutral response; suspended customer is told,IAM,Security,Equivalence partitioning,P1,Staff account Amir Haddad active; customer Tomasz suspended,users: amir.haddad@brasa.example; tomasz.nowak@example.com,"1. Enter amir.haddad@brasa.example in the customer app and tap Send code.
+TC-IAM-004,Staff email gets the neutral response; suspended customer is told,IAM,Security,Equivalence partitioning,P1,Staff account Amir Haddad active; customer Tomasz suspended,users: amir.haddad@restaurant.example; tomasz.nowak@example.com,"1. Enter amir.haddad@restaurant.example in the customer app and tap Send code.
 2. Compare the API response body and timing with a request for an unknown email.
 3. Enter tomasz.nowak@example.com and tap Send code.","1. Same ""Check your email"" screen; no email sent; no customer account created.
 2. Identical status and body; timing difference under 50 ms.
 3. ""This account is suspended. Contact the branch or support@example.com.""; no email sent.",FR-IAM-01,BR-001,US-001,Automated,Pass,
-TC-IAM-005,Deactivated employee is signed out within 60 seconds and cannot sign in,IAM,Security,State transition,P1,Jonas Berg signed in on Till 2 and the Admin Panel is not available to him; virtual clock 14:00:00,users: jonas.berg@brasa.example,"1. At 14:00:10 Paul deactivates Jonas.
+TC-IAM-005,Deactivated employee is signed out within 60 seconds and cannot sign in,IAM,Security,State transition,P1,Jonas Berg signed in on Till 2 and the Admin Panel is not available to him; virtual clock 14:00:00,users: jonas.berg@restaurant.example,"1. At 14:00:10 Paul deactivates Jonas.
 2. Observe Till 2 until 14:01:10.
 3. Try to sign in to the till as Jonas.
 4. Call any API with Jonas's old refresh token.","2. Till 2 shows ""You have been signed out"" by 14:01:10.
 3. Sign-in refused.
 4. 401; refresh token revoked; socket disconnected.",FR-IAM-07,BR-005,US-005,Automated,Pass,
-TC-IAM-006,"Admin Panel sign-in: TOTP, lockout and password policy",IAM,Security,BVA,P1,Paul has TOTP enrolled; Marta has none; virtual clock,users: paul.lindqvist@brasa.example; marta.kowalska@brasa.example,"1. Paul signs in with password and a valid TOTP.
+TC-IAM-006,"Admin Panel sign-in: TOTP, lockout and password policy",IAM,Security,BVA,P1,Paul has TOTP enrolled; Marta has none; virtual clock,users: paul.lindqvist@restaurant.example; marta.kowalska@restaurant.example,"1. Paul signs in with password and a valid TOTP.
 2. Marta fails 4 times, then signs in at 09:00:30.
 3. Marta fails 5 times (last 09:00:00), tries correctly at 09:14:59 and 09:15:00.
 4. Paul sets passwords ""grill-bowl-7"", ""grill-bowl-77"", ""password1234"".
@@ -161,7 +161,7 @@ TC-MNU-003,"Ingredients, add-ons, unique names and retiring an add-on",MNU,Funct
 2. Saved and attachable.
 3. First saved; second rejected as duplicate (DEF-027 regression).
 4. Line shows ""Halloumi is no longer available and was removed. Price updated to 9.90.""",FR-MNU-03; FR-MNU-04,BR-021; BR-022,US-015,Automated,Pass,
-TC-MNU-004,POS article sync within 5 minutes,MNU,Integration,Use case,P1,Market Hall connected to the POS sandbox,catalog.csv: P-MH-02,"1. Create Beef Brasa Bowl 10.90.
+TC-MNU-004,POS article sync within 5 minutes,MNU,Integration,Use case,P1,Market Hall connected to the POS sandbox,catalog.csv: P-MH-02,"1. Create Beef Grill Bowl 10.90.
 2. Change its price to 11.20.
 3. Deactivate it.
 4. Save a product with dine-in VAT 13% (not set up in the POS).","1. Article created and linked within 5 min.
@@ -333,7 +333,7 @@ TC-PAY-010,Refunds and cancellation receipts,PAY,Functional,Decision table,P1,SQ
 3. Marta cancels SQ-0320 and records Cash refund.
 4. Noor tries to cancel SQ-0320.
 5. Tomasz cancels paid CP-0057 in the window.","1. Refund 22.68 requested; cancellation receipt; Refunded on confirmation.
-2. Listed in Refunds needing attention; retry or mark refunded outside Brasa.
+2. Listed in Refunds needing attention; retry or mark refunded outside the platform.
 3. Canceled; Refunded (cash) with actor; receipt.
 4. ""Only a Manager can cancel a paid order.""
 5. Refund 48.62 and receipt with no staff action.",FR-PAY-08; FR-PAY-09,BR-030; BR-031,US-034,Automated,Blocked,Blocked: the provider sandbox cannot simulate refund rejection since its 2026-09-15 update; step 2 covered by the contract test
@@ -348,7 +348,7 @@ TC-TIL-001,Walk-in order with a customization paid by cash,TIL,Functional,Use ca
 3. Press and hold Cash 11.90.","1-2. 12:11 preselected; total 11.90.
 3. MH-0145 Paid by cash, Queued; teal ""AH"" on the kitchen board within 2 s; panel clears.",FR-TIL-01; FR-TIL-02; FR-TIL-03; FR-TIL-04,BR-019,US-036,Automated,Pass,
 TC-TIL-002,Dine-in exists only on the till and closes on Ready,TIL,Functional,State transition,P1,Till and apps available,catalog.csv: P-MH-02,"1. Check the toggle with an empty order.
-2. Add a Beef Brasa Bowl, choose Dine in, place.
+2. Add a Beef Grill Bowl, choose Dine in, place.
 3. Kitchen marks it Ready.
 4. Inspect the customer API for an order type field.","1. Disabled.
 2. Boards show ""DINE-IN AH"".

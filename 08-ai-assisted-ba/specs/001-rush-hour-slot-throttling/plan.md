@@ -44,7 +44,7 @@ During a branch's rush window, online orders may hold at most floor(n x S / 100)
 
 ## Constitution Check
 
-The Brasa delivery constitution is the set of principles every feature plan is checked against. The Business Analyst ran the check at `/plan` time and again after the change of R-02.
+The platform delivery constitution is the set of principles every feature plan is checked against. The Business Analyst ran the check at `/plan` time and again after the change of R-02.
 
 | Principle | What it requires | How this plan complies | Result |
 |---|---|---|---|

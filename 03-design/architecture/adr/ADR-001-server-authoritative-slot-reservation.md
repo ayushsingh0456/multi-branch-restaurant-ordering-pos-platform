@@ -12,9 +12,9 @@
 
 ## Context and problem statement
 
-Brasa promises customers an exact pickup minute that the kitchen can meet (DEC-02). The kitchen is one production line, and an order holds the P kitchen minutes immediately before its pickup minute (BR-011, BR-012). At the lunch rush, several customers look at the same free minutes at the same time; at Market Hall, 3 to 5 placements a minute is normal between 11:45 and 12:30.
+The platform promises customers an exact pickup minute that the kitchen can meet (DEC-02). The kitchen is one production line, and an order holds the P kitchen minutes immediately before its pickup minute (BR-011, BR-012). At the lunch rush, several customers look at the same free minutes at the same time; at Market Hall, 3 to 5 placements a minute is normal between 11:45 and 12:30.
 
-The previous system computed availability in each client and re-checked the minute in application code before saving. Under concurrency, two orders could both pass the check. Brasa needs a design where two orders can never hold the same kitchen minute, the slot list stays fast (800 ms p95, NFR-PERF-01) and the rules stay in one place.
+The previous system computed availability in each client and re-checked the minute in application code before saving. Under concurrency, two orders could both pass the check. The platform needs a design where two orders can never hold the same kitchen minute, the slot list stays fast (800 ms p95, NFR-PERF-01) and the rules stay in one place.
 
 ## Decision drivers
 

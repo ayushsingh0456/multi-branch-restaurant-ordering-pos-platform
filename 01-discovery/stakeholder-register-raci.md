@@ -20,22 +20,22 @@
 
 ### Purpose and scope
 
-This register identifies everyone who affects or is affected by Brasa, records how much they care and how much they can influence it, and sets how the team engages them. The Business Analyst maintains it and reviews it at every steering meeting; attitude changes are recorded with the evidence that caused them. Staff below manager level and customers are listed as groups, not by name.
+This register identifies everyone who affects or is affected by the platform, records how much they care and how much they can influence it, and sets how the team engages them. The Business Analyst maintains it and reviews it at every steering meeting; attitude changes are recorded with the evidence that caused them. Staff below manager level and customers are listed as groups, not by name.
 
 ## 1. Stakeholder register
 
 Influence and interest use High, Medium and Low. Attitude uses Champion, Supportive, Neutral, Cautious and Skeptical. The Business Analyst is the author of this register and is not listed.
 
-| ID | Stakeholder (role) | Organization | Interest in Brasa | Influence | Interest level | Attitude | Engagement strategy | Channel and frequency |
+| ID | Stakeholder (role) | Organization | Interest in the platform | Influence | Interest level | Attitude | Engagement strategy | Channel and frequency |
 |---|---|---|---|---|---|---|---|---|
-| STK-01 | Owner and Managing Director (sponsor) | Brasa Grill | Lunch growth without more counter staff; payback; brand | High | High | Champion | Decisions framed as options with cost and risk; business case owned with the Finance Controller | Steering monthly; one-page status every 2 weeks |
-| STK-02 | Operations Director (Product Owner), see PER-06 | Brasa Grill | One way of working at four branches; numbers to steer by | High | High | Champion | Daily collaboration; BA prepares refinement-ready stories and CR impact analyses | Stand-up; weekly refinement; CCB chair |
-| STK-03 | Finance Controller, see PER-07 | Brasa Grill | VAT, receipts, refunds, reconciliation, running costs | High (veto on money rules) | High | Cautious, then Supportive after DEC-10 and DEC-11 | Worked examples for every money rule; sign-off on WE-1; reconciliation design review | Money-rule review per sprint; CCB for money CRs |
-| STK-04 | Branch Managers (four), see PER-05 | Brasa Grill | A calm rush; fair treatment of walk-ins and online customers; control in trouble | Medium to High | High | Supportive; Station Quarter Skeptical about online orders until CR-006 | Observation at their branches; UAT participants; first say on operational settings | Branch round every 2 weeks from May; UAT |
-| STK-05 | Kitchen leads (four), see PER-04 | Brasa Grill | A board they can read at 2 m with gloves on; orders in the right order | Medium | High | Cautious ("another screen") | Co-design of the kitchen board; validate kitchen-minute model and rush factor | Rush observations; board walkthroughs per sprint from S3 |
-| STK-06 | Counter staff (about 40 across the branches), see PER-03 | Brasa Grill | Fast tiles; one queue; no blame for money mistakes | Low individually, High collectively | High | Mixed: 6 of 8 interviewed positive; worried about refund disputes | Timed tasks in the prototype test; no refunds for Counter Staff (DEC-06); color coding on boards | Prototype test; UAT-04 and UAT-05; release notes on the till |
+| STK-01 | Owner and Managing Director (sponsor) | the restaurant group | Lunch growth without more counter staff; payback; brand | High | High | Champion | Decisions framed as options with cost and risk; business case owned with the Finance Controller | Steering monthly; one-page status every 2 weeks |
+| STK-02 | Operations Director (Product Owner), see PER-06 | the restaurant group | One way of working at four branches; numbers to steer by | High | High | Champion | Daily collaboration; BA prepares refinement-ready stories and CR impact analyses | Stand-up; weekly refinement; CCB chair |
+| STK-03 | Finance Controller, see PER-07 | the restaurant group | VAT, receipts, refunds, reconciliation, running costs | High (veto on money rules) | High | Cautious, then Supportive after DEC-10 and DEC-11 | Worked examples for every money rule; sign-off on WE-1; reconciliation design review | Money-rule review per sprint; CCB for money CRs |
+| STK-04 | Branch Managers (four), see PER-05 | the restaurant group | A calm rush; fair treatment of walk-ins and online customers; control in trouble | Medium to High | High | Supportive; Station Quarter Skeptical about online orders until CR-006 | Observation at their branches; UAT participants; first say on operational settings | Branch round every 2 weeks from May; UAT |
+| STK-05 | Kitchen leads (four), see PER-04 | the restaurant group | A board they can read at 2 m with gloves on; orders in the right order | Medium | High | Cautious ("another screen") | Co-design of the kitchen board; validate kitchen-minute model and rush factor | Rush observations; board walkthroughs per sprint from S3 |
+| STK-06 | Counter staff (about 40 across the branches), see PER-03 | the restaurant group | Fast tiles; one queue; no blame for money mistakes | Low individually, High collectively | High | Mixed: 6 of 8 interviewed positive; worried about refund disputes | Timed tasks in the prototype test; no refunds for Counter Staff (DEC-06); color coding on boards | Prototype test; UAT-04 and UAT-05; release notes on the till |
 | STK-07 | Customers (lunch regulars, students, office workers), see PER-01 and PER-02 | Public | Honest pickup times, the price before paying, allergens, an easy cancel | High collectively (OBJ-01) | Medium | Supportive: 64% of surveyed customers would order ahead in an app | Survey (n = 212); prototype test with 12 customers; app store reviews | Survey; release notes; support email |
-| STK-08 | Marketing coordinator | Brasa Grill | App adoption, store listing, QR material | Low | Medium | Supportive | Involved in launch material; raised CR-002 | Monthly adoption review |
+| STK-08 | Marketing coordinator | the restaurant group | App adoption, store listing, QR material | Low | Medium | Supportive | Involved in launch material; raised CR-002 | Monthly adoption review |
 | STK-09 | External tax adviser | Adviser to the Finance Controller | VAT treatment, tip handling, receipt rules | Medium (veto on tax treatment) | Low | Neutral | Questions batched through the Finance Controller; confirmation in writing (A-04) | As needed |
 | STK-10 | Data Protection Officer | External service | Lawful basis, minimization, erasure, processors, DPIA | High (veto on personal-data handling) | Medium | Cautious | Privacy review per epic; DPIA before go-live; review of push and email content | Monthly check-in; per epic |
 | STK-11 | Legal counsel | External | Consumer-law wording: order button, cancellation, distance-sale information | Medium | Low | Neutral | Wording requests with screenshots and the rule text (A-06, DEP-05) | As needed |
@@ -119,7 +119,7 @@ R = Responsible (does the work), A = Accountable (one per row, final decision), 
 Notes:
 - The Business Analyst is Responsible for documenting every rule and Accountable only for the traceability matrix, which is the BA's own work product. Rules are owned by their authority: kitchen timing by the Product Owner with the kitchen leads, money rules by the Finance Controller with the tax adviser.
 - For incidents the Tech Lead appears as Accountable because that role is the default Incident Commander; whoever acts as Incident Commander holds the accountability ([incident management process](../07-operations/incident-management-process.md)). The Delivery Manager is the Communications Lead.
-- The Data Protection Officer advises and can stop a release on personal-data grounds; accountability for the processing stays with Brasa Grill, represented by the Operations Director.
+- The Data Protection Officer advises and can stop a release on personal-data grounds; accountability for the processing stays with the restaurant group, represented by the Operations Director.
 
 ## 4. Communication plan
 

@@ -1,4 +1,4 @@
-# System Architecture: Brasa
+# System Architecture: Multi-Branch Restaurant Ordering & POS Platform
 
 ## Document control
 
@@ -11,7 +11,7 @@
 | Last updated | 2026-09-18 |
 | Reviewers | Product Owner (Operations Director); QA Lead; Finance Controller (payments and invoicing sections) |
 
-**Purpose and scope.** The C4 context and container views of Brasa, the technology stack, how the containers talk to each other and to external services, and the deployment. The decisions behind the shape are in the ADRs ([ADR-001](adr/ADR-001-server-authoritative-slot-reservation.md), [ADR-002](adr/ADR-002-live-updates-snapshot-and-sequence.md), [ADR-003](adr/ADR-003-idempotent-payments-and-invoice-outbox.md)).
+**Purpose and scope.** The C4 context and container views of the platform, the technology stack, how the containers talk to each other and to external services, and the deployment. The decisions behind the shape are in the ADRs ([ADR-001](adr/ADR-001-server-authoritative-slot-reservation.md), [ADR-002](adr/ADR-002-live-updates-snapshot-and-sequence.md), [ADR-003](adr/ADR-003-idempotent-payments-and-invoice-outbox.md)).
 
 ## 1. System context (C4 level 1)
 
@@ -20,23 +20,23 @@ flowchart TB
   CUS(["Customer<br/>[Person]<br/>Orders for pickup"])
   STF(["Counter Staff and Managers<br/>[Person]<br/>Take orders, run the boards"])
   ADM(["Administrator<br/>[Person]<br/>Configures branches, menus, staff"])
-  BRASA["Brasa<br/>[Software system]<br/>Pickup ordering, till and live order boards<br/>for Brasa Grill (fictional)"]
+  RESTAURANT["the platform<br/>[Software system]<br/>Pickup ordering, till and live order boards<br/>for the restaurant group"]
   POS["Cloud POS and invoicing provider<br/>[External system]<br/>One account per branch; receipts and invoices"]
   PSP["Card payment provider<br/>[External system]<br/>Hosted checkout, card readers, refunds"]
   FCM["Firebase Cloud Messaging<br/>[External system]<br/>Push to phones and browsers"]
   EML["Transactional email provider<br/>[External system]<br/>SMTP"]
   SMS["SMS provider<br/>[External system, dormant]"]
   MON["Error monitoring service<br/>[External system]<br/>Till crash reports"]
-  CUS -->|"Orders, pays, follows status"| BRASA
-  STF -->|"Takes and settles orders;<br/>marks Ready"| BRASA
-  ADM -->|"Configures; reviews reports"| BRASA
-  BRASA -->|"Articles, invoices,<br/>cancellation receipts"| POS
-  BRASA -->|"Checkouts, refunds,<br/>transaction reports"| PSP
-  PSP -->|"Signed payment webhooks"| BRASA
-  BRASA -->|"Push messages"| FCM
-  BRASA -->|"Codes, confirmations,<br/>reminders"| EML
-  BRASA -.->|"Not used in R1"| SMS
-  BRASA -->|"Errors from the till"| MON
+  CUS -->|"Orders, pays, follows status"| RESTAURANT
+  STF -->|"Takes and settles orders;<br/>marks Ready"| RESTAURANT
+  ADM -->|"Configures; reviews reports"| RESTAURANT
+  RESTAURANT -->|"Articles, invoices,<br/>cancellation receipts"| POS
+  RESTAURANT -->|"Checkouts, refunds,<br/>transaction reports"| PSP
+  PSP -->|"Signed payment webhooks"| RESTAURANT
+  RESTAURANT -->|"Push messages"| FCM
+  RESTAURANT -->|"Codes, confirmations,<br/>reminders"| EML
+  RESTAURANT -.->|"Not used in R1"| SMS
+  RESTAURANT -->|"Errors from the till"| MON
 ```
 
 ## 2. Containers (C4 level 2)
@@ -49,7 +49,7 @@ flowchart TB
     TIL["Counter Staff iPad till<br/>[Flutter, iPadOS, landscape]"]
     ADP["Admin Panel and boards<br/>[React 18, Redux]"]
   end
-  subgraph PLATFORM["Brasa platform (EU region)"]
+  subgraph PLATFORM["the platform (EU region)"]
     LB["Load balancer and WAF<br/>[TLS termination, sticky sessions for polling]"]
     API["API<br/>[Node.js, Express, Mongoose]<br/>REST /v1; slot engine; pricing"]
     RT["Live gateway<br/>[Socket.IO with the MongoDB adapter]<br/>rooms per branch and customer"]

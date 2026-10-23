@@ -11,7 +11,7 @@ Source: 05-delivery/user-stories/EP-03-menu-and-catalog.md","","High","","","","
 "EP-04","Epic","Customer Ordering & Notifications","Goal: Let a customer order a customized bowl or wrap for an exact pickup minute in under a minute, know the price and the cancellation deadline before committing, and hear about the order without having to call.
 Stories: US-019, US-020, US-021, US-022, US-023, US-024, US-025, US-026, US-027, US-028, US-029 (47 points).
 Source: 05-delivery/user-stories/EP-04-customer-ordering-and-notifications.md","","High","","","","R1","ordering","API; Customer apps"
-"EP-05","Epic","Payments & Invoicing","Goal: Take every payment exactly once, through channels that keep card data out of Brasa, and give every paid order exactly one valid invoice from the branch's POS account.
+"EP-05","Epic","Payments & Invoicing","Goal: Take every payment exactly once, through channels that keep card data out of the platform, and give every paid order exactly one valid invoice from the branch's POS account.
 Stories: US-030, US-031, US-032, US-033, US-034, US-035 (36 points).
 Source: 05-delivery/user-stories/EP-05-payments-and-invoicing.md","","High","","","","R1","payments","API; Customer apps; Till"
 "EP-06","Epic","Till & Live Order Boards","Goal: Give the counter and the kitchen one live, trustworthy view of every order from every channel, and make walk-in orders faster to take than before.
@@ -58,7 +58,7 @@ Scenario: US-001-AC4 A new code replaces the old one and requests are limited
   And when she has requested 5 codes since 11:41:00 a sixth request at 12:20:00 is refused with ""You have asked for 5 codes in the last hour. Try again at 12:41 or use a different email.""
 
 Scenario: US-001-AC5 A staff email gets the neutral response and no code
-  Given amir.haddad@brasa.example belongs to a Counter Staff account
+  Given amir.haddad@restaurant.example belongs to a Counter Staff account
   When it is entered in the customer app
   Then the app shows the same ""Check your email for a 6-digit code"" screen as for any address
   And no code is sent and no customer account is created
@@ -67,8 +67,8 @@ Scenario: US-001-AC6 A suspended customer cannot get a code
   Given Tomasz's account is Suspended
   When he enters his email and taps ""Send code""
   Then no code is sent
-  And the app shows ""This account is suspended. Contact the branch or support@example.com.""","High","5","EP-01","Brasa S1","R1","iam","API; Customer apps; Admin Panel; Till"
-"US-002","Story","Browse the menu as a guest","As a first-time visitor, I want to look at a branch's menu, prices and allergens before I sign in, so that I can decide whether Brasa suits my team before giving my email.
+  And the app shows ""This account is suspended. Contact the branch or support@example.com.""","High","5","EP-01","the platform S1","R1","iam","API; Customer apps; Admin Panel; Till"
+"US-002","Story","Browse the menu as a guest","As a first-time visitor, I want to look at a branch's menu, prices and allergens before I sign in, so that I can decide whether the platform suits my team before giving my email.
 Persona: PER-02 Tomasz Nowak (GST)
 Requirements: FR-IAM-03
 Business rules: none","Scenario: US-002-AC1 Guest browses in the mobile app
@@ -91,7 +91,7 @@ Scenario: US-002-AC3 Adding to the cart asks for sign-in and keeps the choices
 Scenario: US-002-AC4 Guests have no cart or order history
   Given Tomasz is a guest
   When he opens the Cart or Orders tab
-  Then he sees ""Sign in to see your cart and orders"" with a ""Sign in"" button","Medium","2","EP-01","Brasa S2","R1","iam","API; Customer apps; Admin Panel; Till"
+  Then he sees ""Sign in to see your cart and orders"" with a ""Sign in"" button","Medium","2","EP-01","the platform S2","R1","iam","API; Customer apps; Admin Panel; Till"
 "US-003","Story","Sign in to the Admin Panel securely","As an Administrator, I want staff sign-in to the Admin Panel to be protected by strong passwords, lockout and a second factor for administrators, so that a stolen password cannot change prices, refunds or payment settings.
 Persona: PER-06 Paul Lindqvist (ADM)
 Requirements: FR-IAM-04, FR-IAM-10
@@ -136,7 +136,7 @@ Scenario: US-003-AC6 Password reset link is single use and valid for 30 minutes
   Given Marta requested a reset at 08:00:00
   Then the response is the same whether or not the email exists
   And the link works until 08:30:00 and only once
-  And at 08:30:01 it shows ""This link has expired. Request a new one.""","High","5","EP-01","Brasa S1","R1","iam","API; Customer apps; Admin Panel; Till"
+  And at 08:30:01 it shows ""This link has expired. Request a new one.""","High","5","EP-01","the platform S1","R1","iam","API; Customer apps; Admin Panel; Till"
 "US-004","Story","Sign in to the till for my branch","As counter staff, I want to sign in to the till with my own account and pick my branch, so that the orders I take carry my initials and color and my branch's menu and queue load.
 Persona: PER-03 Amir Haddad (CST)
 Requirements: FR-IAM-05
@@ -167,13 +167,13 @@ Scenario Outline: US-004-AC4 A till session lasts at most 14 hours
 
 Scenario: US-004-AC5 Two iPads with the same account keep separate drafts
   Given Amir is signed in on Till 1 and Till 2 at Market Hall
-  When he adds a Chicken Wrap on Till 1 and a Beef Brasa Bowl on Till 2
-  Then Till 1 shows only the Chicken Wrap and Till 2 only the Beef Brasa Bowl","High","3","EP-01","Brasa S2","R1","iam","API; Customer apps; Admin Panel; Till"
+  When he adds a Chicken Wrap on Till 1 and a Beef Grill Bowl on Till 2
+  Then Till 1 shows only the Chicken Wrap and Till 2 only the Beef Grill Bowl","High","3","EP-01","the platform S2","R1","iam","API; Customer apps; Admin Panel; Till"
 "US-005","Story","Manage employee accounts, roles and colors","As an Administrator, I want to create staff accounts with a fixed role, assigned branches and a board color, so that everyone signs in as themselves, sees only their branches, and the kitchen can tell who took an order.
 Persona: PER-06 Paul Lindqvist (ADM)
 Requirements: FR-IAM-06, FR-IAM-07
 Business rules: BR-003, BR-005, BR-007","Scenario: US-005-AC1 Create a Counter Staff account
-  When Paul creates ""Jonas Berg"", jonas.berg@brasa.example, role Counter Staff, branch Market Hall, color Purple, initials JB
+  When Paul creates ""Jonas Berg"", jonas.berg@restaurant.example, role Counter Staff, branch Market Hall, color Purple, initials JB
   Then the account is Active and Jonas can sign in to the till at Market Hall
   And Jonas cannot sign in to the Admin Panel
 
@@ -200,7 +200,7 @@ Scenario: US-005-AC5 Deactivation ends sessions within 60 seconds
 Scenario: US-005-AC6 Branch scope is enforced on the server
   Given Marta is a Manager assigned to Station Quarter only
   When her browser requests the Market Hall board snapshot or joins the Market Hall live room
-  Then the request returns 403 with code BRANCH_NOT_ASSIGNED and the room join is refused","High","5","EP-01","Brasa S1","R1","iam","API; Customer apps; Admin Panel; Till"
+  Then the request returns 403 with code BRANCH_NOT_ASSIGNED and the room join is refused","High","5","EP-01","the platform S1","R1","iam","API; Customer apps; Admin Panel; Till"
 "US-006","Story","Manage or delete my account","As a customer, I want to change my details, sign out of one device and delete my account, so that I stay in control of my data.
 Persona: PER-01 Clara Mendes (CUS)
 Requirements: FR-IAM-09
@@ -234,7 +234,7 @@ Scenario Outline: US-006-AC5 Profile field validation
     | name    | phone                 | result                                                          |
     | Clara   | (empty)               | saved                                                           |
     | (empty) | (empty)               | rejected: ""Enter the first name we should call at the counter."" |
-    | Clara   | 0470 000 000          | rejected: ""Enter the mobile number with its country code, starting with +."" |","High","3","EP-01","Brasa S5","R1","iam","API; Customer apps; Admin Panel; Till"
+    | Clara   | 0470 000 000          | rejected: ""Enter the mobile number with its country code, starting with +."" |","High","3","EP-01","the platform S5","R1","iam","API; Customer apps; Admin Panel; Till"
 "US-007","Story","Review, suspend and reinstate customers","As an Administrator, I want to find a customer, see their status and suspend, reinstate or clear Prepay-only with a reason, so that I can handle abuse and disputes fairly and with a record.
 Persona: PER-06 Paul Lindqvist (ADM)
 Requirements: FR-IAM-08
@@ -261,7 +261,7 @@ Scenario: US-007-AC4 Clear Prepay-only early
 
 Scenario: US-007-AC5 Managers cannot open customer administration
   When Marta opens the customers screen or calls GET /v1/customers
-  Then the menu item is not shown and the API returns 403","High","3","EP-01","Brasa S5","R1","iam;cr","API; Customer apps; Admin Panel; Till"
+  Then the menu item is not shown and the API returns 403","High","3","EP-01","the platform S5","R1","iam;cr","API; Customer apps; Admin Panel; Till"
 "US-008","Story","Set up a branch with opening and rush hours","As an Administrator, I want to set up each branch with its weekly opening hours, rush window and closure dates, so that the apps and the slot engine know when each kitchen is open and when extra staff are on the line.
 Persona: PER-06 Paul Lindqvist (ADM)
 Requirements: FR-BRN-01, FR-BRN-02, FR-BRN-03
@@ -298,7 +298,7 @@ Scenario: US-008-AC5 Deactivation removes the branch everywhere at once
   Given Riverside has no open orders
   When Paul deactivates Riverside
   Then within 2 seconds Riverside disappears from the branch lists of both customer apps and the till
-  And customers who had Riverside selected are asked to choose another branch","High","5","EP-02","Brasa S1","R1","slots","API; Admin Panel"
+  And customers who had Riverside selected are asked to choose another branch","High","5","EP-02","the platform S1","R1","slots","API; Admin Panel"
 "US-009","Story","Tune a branch's order timings","As a branch Manager, I want to change the online lead time and cancellation cutoff of my branch, so that I can match promises to the staff I have today.
 Persona: PER-05 Marta Kowalska (MGR)
 Requirements: FR-BRN-04
@@ -338,16 +338,16 @@ Scenario Outline: US-009-AC5 Online order limit
   Examples:
     | units | offered                                                                        |
     | 30    | offered                                                                        |
-    | 31    | not offered: ""Orders over 30 bowls and wraps need a call to the branch so the kitchen can plan."" |","High","3","EP-02","Brasa S2","R1","slots","API; Admin Panel"
+    | 31    | not offered: ""Orders over 30 bowls and wraps need a call to the branch so the kitchen can plan."" |","High","3","EP-02","the platform S2","R1","slots","API; Admin Panel"
 "US-010","Story","Connect a branch to the POS provider","As an Administrator, I want to connect each branch to its own account at the cloud POS and invoicing provider, so that the till can take payments with the branch's methods and every paid order gets a valid invoice.
 Persona: PER-06 Paul Lindqvist (ADM)
 Requirements: FR-BRN-05
 Business rules: none","Scenario: US-010-AC1 Connect a branch and import payment methods
   Given Market Hall's POS account has the methods ""Cash"", ""Card (provider)"", ""Voucher"" and ""Bank transfer""
   When Paul clicks ""Connect POS account"" and grants access on the provider's page
-  Then Market Hall shows ""Connected to POS account Market Hall (Brasa Grill)""
+  Then Market Hall shows ""Connected to POS account Market Hall (the restaurant group)""
   And the methods ""Cash"" and ""Card (provider)"" are imported
-  And ""Voucher"" and ""Bank transfer"" are listed as ""Not used by Brasa""
+  And ""Voucher"" and ""Bank transfer"" are listed as ""Not used by the platform""
 
 Scenario: US-010-AC2 Expired access raises an alert without stopping trade
   Given Riverside's POS access token has expired
@@ -363,7 +363,7 @@ Scenario: US-010-AC3 Reconnecting releases the waiting invoices
 Scenario: US-010-AC4 Managers cannot change the POS connection
   When Marta opens Station Quarter's settings
   Then the POS connection section is not shown
-  And POST /v1/branches/LOC-02/pos-connection by Marta returns 403","High","5","EP-02","Brasa S3","R1","slots","API; Admin Panel"
+  And POST /v1/branches/LOC-02/pos-connection by Marta returns 403","High","5","EP-02","the platform S3","R1","slots","API; Admin Panel"
 "US-011","Story","Offer only pickup times the kitchen can meet","As a customer on a short lunch break, I want to see only pickup minutes the kitchen can actually meet, so that my food is ready when I arrive.
 Persona: PER-01 Clara Mendes (CUS)
 Requirements: FR-BRN-06, FR-BRN-07, FR-BRN-08, FR-BRN-11
@@ -416,7 +416,7 @@ Scenario: US-011-AC5 A cancellation frees kitchen minutes for everyone at once
 Scenario: US-011-AC6 The server clock decides, not the phone
   Given Clara's phone clock shows 12:20 while the server time is 12:04:20
   When she opens the pickup sheet
-  Then the earliest offered minute is still 12:15 or later per the bookings","High","8","EP-02","Brasa S2","R1","slots","API; Admin Panel"
+  Then the earliest offered minute is still 12:15 or later per the bookings","High","8","EP-02","the platform S2","R1","slots","API; Admin Panel"
 "US-012","Story","Hold back pickup times when the kitchen is in trouble","As a branch Manager, I want to block pickup times when equipment fails and have the system hold back capacity while the kitchen is late, so that we stop promising times we cannot keep.
 Persona: PER-05 Marta Kowalska (MGR)
 Requirements: FR-BRN-09, FR-BRN-10
@@ -462,7 +462,7 @@ Scenario: US-012-AC6 A Manager can release the delay block early
   When Marta taps ""Release"" on the delay block
   Then the blocked minutes become available at once
   And the block stays released for the orders that were late at that moment
-  And the audit log records Marta, the time and the minutes released","High","5","EP-02","Brasa S5","R1","slots","API; Admin Panel"
+  And the audit log records Marta, the time and the minutes released","High","5","EP-02","the platform S5","R1","slots","API; Admin Panel"
 "US-013","Story","Keep rush-hour capacity for walk-in customers","As a branch Manager, I want online pre-orders to leave part of each rush quarter-hour free until shortly before it starts, so that walk-in customers at the counter are not told to wait 25 minutes while the line is full of orders placed an hour ago.
 Persona: PER-05 Marta Kowalska (MGR)
 Requirements: FR-BRN-12
@@ -507,7 +507,7 @@ Scenario Outline: US-013-AC6 Throttle settings are for Administrators
     | Paul  | 60%   | saved                                              |
     | Paul  | 100%  | saved; the throttle is off at this branch          |
     | Paul  | 35%   | ""Enter an online share between 40% and 100%.""      |
-    | Marta | 60%   | 403: only Administrators can change the throttle   |","High","8","EP-02","Brasa S11","R1.2","slots;cr","API; Admin Panel"
+    | Marta | 60%   | 403: only Administrators can change the throttle   |","High","8","EP-02","the platform S11","R1.2","slots;cr","API; Admin Panel"
 "US-014","Story","Maintain categories and products for a branch","As an Administrator, I want to maintain each branch's categories and products with prices, VAT rates and kitchen-time flags, so that every channel sells the same items at the right price and the slot engine knows what the kitchen has to make.
 Persona: PER-06 Paul Lindqvist (ADM)
 Requirements: FR-MNU-01, FR-MNU-02, FR-MNU-05
@@ -550,7 +550,7 @@ Scenario: US-014-AC6 Price changes never touch placed orders
   Given order MH-0142 was placed with the Chicken Grill Bowl at 9.40
   When Paul changes the price to 9.60
   Then MH-0142 still shows 9.40
-  And carts are re-priced at 9.60 the next time they are viewed (BR-027)","High","5","EP-03","Brasa S1","R1","catalog","API; Admin Panel"
+  And carts are re-priced at 9.60 the next time they are viewed (BR-027)","High","5","EP-03","the platform S1","R1","catalog","API; Admin Panel"
 "US-015","Story","Maintain shared ingredients and add-ons","As an Administrator, I want one shared list of ingredients and add-ons with their allergens, so that I maintain allergen data once and every branch's products use it.
 Persona: PER-06 Paul Lindqvist (ADM)
 Requirements: FR-MNU-03, FR-MNU-04
@@ -579,22 +579,22 @@ Scenario Outline: US-015-AC4 Names are unique
     | name          | result                                                 |
     | Chili sauce   | saved                                                  |
     | garlic sauce  | ""An add-on called Garlic sauce already exists.""        |
-    | Garlic sauce  | ""An add-on called Garlic sauce already exists.""        |","High","3","EP-03","Brasa S1","R1","catalog","API; Admin Panel"
-"US-016","Story","Keep products in step with the POS","As an Administrator, I want each product and add-on to exist as an article in the branch's POS account with the same name, price, VAT rate and status, so that invoices and the POS reports match what Brasa sold.
+    | Garlic sauce  | ""An add-on called Garlic sauce already exists.""        |","High","3","EP-03","the platform S1","R1","catalog","API; Admin Panel"
+"US-016","Story","Keep products in step with the POS","As an Administrator, I want each product and add-on to exist as an article in the branch's POS account with the same name, price, VAT rate and status, so that invoices and the POS reports match what the platform sold.
 Persona: PER-06 Paul Lindqvist (ADM)
 Requirements: FR-MNU-06
 Business rules: none","Scenario: US-016-AC1 A new product creates its POS article
   Given Market Hall is connected to its POS account
-  When Paul creates ""Beef Brasa Bowl"" at 10.90 with no article mapping
-  Then within 5 minutes an article ""Beef Brasa Bowl"" at 10.90 and 10% exists in the Market Hall POS account
+  When Paul creates ""Beef Grill Bowl"" at 10.90 with no article mapping
+  Then within 5 minutes an article ""Beef Grill Bowl"" at 10.90 and 10% exists in the Market Hall POS account
   And the product shows ""Linked to POS article 4417""
 
 Scenario: US-016-AC2 Price and VAT changes are pushed
-  When Paul changes the Beef Brasa Bowl price to 11.20
+  When Paul changes the Beef Grill Bowl price to 11.20
   Then the POS article shows 11.20 within 5 minutes
 
 Scenario: US-016-AC3 Deactivation is pushed
-  When Paul deactivates the Beef Brasa Bowl
+  When Paul deactivates the Beef Grill Bowl
   Then the POS article is deactivated within 5 minutes
 
 Scenario: US-016-AC4 A failed sync is visible and does not stop sales
@@ -602,7 +602,7 @@ Scenario: US-016-AC4 A failed sync is visible and does not stop sales
   When Paul saves a product with a dine-in VAT rate of 13%
   Then the product shows ""POS sync failed: VAT rate 13% is not set up in the POS account""
   And Administrators receive an alert
-  And the product can still be sold; its invoices wait in the outbox until the sync succeeds","High","5","EP-03","Brasa S5","R1","catalog","API; Admin Panel"
+  And the product can still be sold; its invoices wait in the outbox until the sync succeeds","High","5","EP-03","the platform S5","R1","catalog","API; Admin Panel"
 "US-017","Story","See allergens before I order","As a customer ordering lunch for my team, I want to see the allergens of each item, including the extras I add, before I put it in the cart, so that I can order safely for a colleague with a sesame allergy.
 Persona: PER-02 Tomasz Nowak (CUS)
 Requirements: FR-MNU-07
@@ -623,7 +623,7 @@ Scenario: US-017-AC3 A product cannot go live without confirmed allergens
 
 Scenario: US-017-AC4 Allergens are the same on the web panel
   When Tomasz views the Falafel Wrap on the web panel
-  Then the allergens shown are identical to the mobile app","High","5","EP-03","Brasa S4","R1","catalog;cr","API; Admin Panel"
+  Then the allergens shown are identical to the mobile app","High","5","EP-03","the platform S4","R1","catalog;cr","API; Admin Panel"
 "US-018","Story","Mark an item sold out for today","As a branch Manager, I want to mark a product sold out for the rest of the day, so that customers stop ordering what the kitchen cannot make.
 Persona: PER-05 Marta Kowalska (MGR)
 Requirements: FR-MNU-08
@@ -655,7 +655,7 @@ Scenario: US-018-AC4 Placed orders are not affected
 Scenario: US-018-AC5 Counter Staff cannot mark items sold out
   When Noor long-presses a tile on the till
   Then no sold-out option is offered
-  And PUT /v1/products/{productId}/availability by Noor returns 403","Medium","2","EP-03","Brasa S6","R1","catalog","API; Admin Panel"
+  And PUT /v1/products/{productId}/availability by Noor returns 403","Medium","2","EP-03","the platform S6","R1","catalog","API; Admin Panel"
 "US-019","Story","Choose a branch and browse its menu","As a customer, I want to pick the branch near my office and browse its menu with prices and availability, so that I only see what I can actually order there today.
 Persona: PER-01 Clara Mendes (CUS)
 Requirements: FR-ORD-01, FR-ORD-02
@@ -678,7 +678,7 @@ Scenario: US-019-AC3 Only sellable products are shown
 
 Scenario: US-019-AC4 A closed branch says when it opens
   When Clara opens Market Hall on Friday 2026-09-18 at 21:05
-  Then the menu shows ""Closed now. Opens tomorrow at 12:00."" and she can browse but not choose a pickup time","High","3","EP-04","Brasa S2","R1","ordering","API; Customer apps"
+  Then the menu shows ""Closed now. Opens tomorrow at 12:00."" and she can browse but not choose a pickup time","High","3","EP-04","the platform S2","R1","ordering","API; Customer apps"
 "US-020","Story","Customize a bowl or wrap","As a customer, I want to remove ingredients I do not want and add extras, and see the price change as I go, so that I get exactly the bowl I want at a price I know before I add it.
 Persona: PER-01 Clara Mendes (CUS)
 Requirements: FR-ORD-03
@@ -716,7 +716,7 @@ Scenario: US-020-AC5 Closing the sheet discards the choices
 Scenario: US-020-AC6 Editing a cart line reopens the sheet with its choices
   Given the cart holds the Chicken Grill Bowl with Halloumi and Garlic sauce, without Red onion and Coriander
   When Clara taps the line's edit icon
-  Then the sheet opens with those choices preselected and ""Update for EUR 11.40""","High","5","EP-04","Brasa S2","R1","ordering","API; Customer apps"
+  Then the sheet opens with those choices preselected and ""Update for EUR 11.40""","High","5","EP-04","the platform S2","R1","ordering","API; Customer apps"
 "US-021","Story","Check my cart and its total","As a customer, I want my cart to show each line, the VAT and the total exactly as my invoice will, so that there are no surprises when I pay.
 Persona: PER-01 Clara Mendes (CUS)
 Requirements: FR-ORD-04, FR-ORD-05
@@ -757,7 +757,7 @@ Scenario: US-021-AC6 One cart per branch
   Given Clara has the WE-1 cart at Market Hall
   When she switches to Station Quarter
   Then she sees her Station Quarter cart, which is empty
-  And switching back shows the Market Hall cart unchanged","High","5","EP-04","Brasa S3","R1","ordering","API; Customer apps"
+  And switching back shows the Market Hall cart unchanged","High","5","EP-04","the platform S3","R1","ordering","API; Customer apps"
 "US-022","Story","Pick a pickup time and place the order","As a customer, I want to choose a pickup minute and place my order with a clear confirmation, so that I know when to arrive, until when I can cancel, and how I will pay.
 Persona: PER-01 Clara Mendes (CUS)
 Requirements: FR-ORD-06, FR-ORD-07, FR-ORD-08
@@ -800,7 +800,7 @@ Scenario Outline: US-022-AC4 Prepay-only customers pay within 8 minutes
 Scenario: US-022-AC5 Orders stop when the branch stops taking them
   Given Clara is on the pickup sheet at Station Quarter
   When an Administrator records today as a closure date before she taps ""Place order""
-  Then the order is not created and she sees ""Station Quarter stopped taking orders for today.""","High","8","EP-04","Brasa S3","R1","ordering;cr","API; Customer apps"
+  Then the order is not created and she sees ""Station Quarter stopped taking orders for today.""","High","8","EP-04","the platform S3","R1","ordering;cr","API; Customer apps"
 "US-023","Story","Follow my order live and see my history","As a customer, I want to see my order move from Queued to Ready without refreshing, and look up past orders and their invoices, so that I leave the office at the right moment and can claim expenses.
 Persona: PER-01 Clara Mendes (CUS)
 Requirements: FR-ORD-09, FR-ORD-10
@@ -829,7 +829,7 @@ Scenario: US-023-AC4 A placed order cannot be changed by the customer
 
 Scenario: US-023-AC5 Both apps show the same history
   When Clara signs in to the web panel
-  Then her order history matches the mobile app, including MH-0142 and its status","High","5","EP-04","Brasa S4","R1","ordering","API; Customer apps"
+  Then her order history matches the mobile app, including MH-0142 and its status","High","5","EP-04","the platform S4","R1","ordering","API; Customer apps"
 "US-024","Story","Cancel my order before the deadline","As a customer whose meeting ran over, I want to cancel my order before the kitchen starts on it and get my money back if I paid, so that I do not pay for food I cannot collect.
 Persona: PER-02 Tomasz Nowak (CUS)
 Requirements: FR-ORD-11
@@ -865,7 +865,7 @@ Scenario: US-024-AC4 An order already in preparation cannot be canceled
 Scenario: US-024-AC5 The deadline is visible until it passes
   Given CP-0057 is Queued for 12:45
   Then the order card shows ""Cancel until 12:30""
-  And from 12:30:01 the button is replaced by the label ""Cancellation closed""","High","3","EP-04","Brasa S4","R1","ordering","API; Customer apps"
+  And from 12:30:01 the button is replaced by the label ""Cancellation closed""","High","3","EP-04","the platform S4","R1","ordering","API; Customer apps"
 "US-025","Story","Reorder a past order","As a regular customer, I want to reorder my usual lunch in one tap, so that I do not rebuild the same customized bowl every time.
 Persona: PER-01 Clara Mendes (CUS)
 Requirements: FR-ORD-12
@@ -884,7 +884,7 @@ Scenario: US-025-AC2 Unavailable items are flagged
 Scenario: US-025-AC3 Reorder works only at the same branch
   Given Market Hall is deactivated
   When Clara taps ""Reorder"" on MH-0142
-  Then she sees ""Market Hall is not taking orders. Choose another branch to order from.""","Low","2","EP-04","Brasa S6","R1","ordering","API; Customer apps"
+  Then she sees ""Market Hall is not taking orders. Choose another branch to order from.""","Low","2","EP-04","the platform S6","R1","ordering","API; Customer apps"
 "US-026","Story","Get told when my order is ready or canceled","As a customer, I want a notification when my order is ready, or if the branch has to cancel it, so that I can leave my desk at the right time or make other plans.
 Persona: PER-01 Clara Mendes (CUS)
 Requirements: FR-NTF-01, FR-NTF-02, FR-NTF-07
@@ -913,7 +913,7 @@ Scenario: US-026-AC5 Tapping a notification opens the order
 Scenario: US-026-AC6 Without push the order card still updates
   Given Clara denied notifications
   When MH-0142 is marked Ready
-  Then no push is sent and the order card in the open app still shows ""Ready for pickup"" within 2 seconds","High","5","EP-04","Brasa S4","R1","ordering","API; Customer apps"
+  Then no push is sent and the order card in the open app still shows ""Ready for pickup"" within 2 seconds","High","5","EP-04","the platform S4","R1","ordering","API; Customer apps"
 "US-027","Story","Remind customers about uncollected orders","As a branch Manager, I want customers who have not collected a ready, unpaid order to be reminded automatically, so that fewer bowls go to waste and staff do not have to phone people.
 Persona: PER-05 Marta Kowalska (MGR)
 Requirements: FR-NTF-03
@@ -937,7 +937,7 @@ Scenario: US-027-AC4 Paid and dine-in orders are never chased
 
 Scenario: US-027-AC5 The final email lets the customer pay
   When the final email for SQ-0290 is sent
-  Then it contains the order number, branch, pickup time and a link that opens the online checkout for that order","High","3","EP-04","Brasa S6","R1","ordering","API; Customer apps"
+  Then it contains the order number, branch, pickup time and a link that opens the online checkout for that order","High","3","EP-04","the platform S6","R1","ordering","API; Customer apps"
 "US-028","Story","Handle no-shows at closing","As a branch Manager, I want uncollected orders closed at the end of the day, and customers who did not pay or collect to prepay next time, so that no-shows cost us less without punishing customers for our mistakes.
 Persona: PER-05 Marta Kowalska (MGR)
 Requirements: FR-NTF-04, FR-ORD-07
@@ -970,7 +970,7 @@ Scenario Outline: US-028-AC4 Prepay-only ends after 30 days
 Scenario: US-028-AC5 Accounts are no longer suspended automatically
   Given an unpaid no-show occurs
   Then the customer can still sign in and order
-  And only an Administrator can suspend an account (US-007)","High","5","EP-04","Brasa S5","R1","ordering;cr","API; Customer apps"
+  And only an Administrator can suspend an account (US-007)","High","5","EP-04","the platform S5","R1","ordering;cr","API; Customer apps"
 "US-029","Story","Send transactional email reliably","As an Administrator, I want every email to be sent once, retried when the provider fails and logged, so that customers get their codes and reminders and I can answer ""did they get it?"".
 Persona: PER-06 Paul Lindqvist (ADM)
 Requirements: FR-NTF-05, FR-NTF-06
@@ -1000,7 +1000,7 @@ Scenario: US-029-AC4 A hard bounce flags the address
 
 Scenario: US-029-AC5 Administrators can see what was sent for an order
   When Paul opens the notification log for MH-0142
-  Then he sees each notification with channel, template, status, attempts and times, without the email body","High","3","EP-04","Brasa S2","R1","ordering","API; Customer apps"
+  Then he sees each notification with channel, template, status, attempts and times, without the email body","High","3","EP-04","the platform S2","R1","ordering","API; Customer apps"
 "US-030","Story","Pay online with an optional tip","As a customer, I want to pay for my order online, with a tip if I choose, so that I can pick it up without queuing at the till.
 Persona: PER-01 Clara Mendes (CUS)
 Requirements: FR-PAY-01, FR-PAY-02, FR-PAY-03
@@ -1039,7 +1039,7 @@ Scenario: US-030-AC4 A repeated webhook is processed once
 Scenario: US-030-AC5 A declined payment leaves the order unpaid
   When Clara's bank declines the payment
   Then the attempt is Failed and MH-0142 stays Queued and unpaid
-  And she sees ""Your bank declined the payment. Try another card or pay at the counter.""","High","8","EP-05","Brasa S3","R1","payments","API; Customer apps; Till"
+  And she sees ""Your bank declined the payment. Try another card or pay at the counter.""","High","8","EP-05","the platform S3","R1","payments","API; Customer apps; Till"
 "US-031","Story","Settle an order at the counter","As counter staff, I want to take cash or card for an unpaid order in one or two taps, with an optional tip on card, so that the queue keeps moving.
 Persona: PER-03 Amir Haddad (CST)
 Requirements: FR-PAY-04
@@ -1076,7 +1076,7 @@ Scenario: US-031-AC4 No card reader, cash still works
 Scenario: US-031-AC5 An online checkout in progress blocks the counter
   Given the customer started an online checkout for MH-0150 two minutes ago
   When Amir taps ""Cash 18.60""
-  Then he sees ""Online payment in progress. Ask a Manager to cancel it before taking payment here.""","High","5","EP-05","Brasa S5","R1","payments;cr","API; Customer apps; Till"
+  Then he sees ""Online payment in progress. Ask a Manager to cancel it before taking payment here.""","High","5","EP-05","the platform S5","R1","payments;cr","API; Customer apps; Till"
 "US-032","Story","Charge a customer once, even when a step times out","As counter staff, I want the till to check a payment that timed out instead of asking me to charge again, so that no customer pays twice.
 Persona: PER-03 Amir Haddad (CST)
 Requirements: FR-PAY-05
@@ -1086,7 +1086,7 @@ Business rules: BR-035","Scenario: US-032-AC1 A timed-out card payment is verifi
   Then the till shows ""Checking the card payment with the provider. Do not charge the card again."" and a ""Verify payment"" button
   And no button on the till can start a new card charge for MH-0150
   When Amir taps ""Verify payment""
-  Then Brasa asks the provider about PA-77120, records it Succeeded and MH-0150 is Paid once
+  Then the platform asks the provider about PA-77120, records it Succeeded and MH-0150 is Paid once
 
 Scenario: US-032-AC2 A pending attempt blocks a new one
   Given MH-0150 has attempt PA-77120 in status Pending
@@ -1109,9 +1109,9 @@ Scenario: US-032-AC5 A declined attempt allows a new one
   Then a new attempt PA-77122 starts
 
 Scenario: US-032-AC6 A double capture pages on-call
-  Given MH-0151 is Paid and the provider reports a second successful transaction for MH-0151, charged on the reader outside the Brasa flow
+  Given MH-0151 is Paid and the provider reports a second successful transaction for MH-0151, charged on the reader outside the platform flow
   Then on-call is paged within 5 minutes
-  And the order shows ""Two payments received"" on the counter board for a Manager to refund one","High","8","EP-05","Brasa S10","R1.1","payments;cr","API; Customer apps; Till"
+  And the order shows ""Two payments received"" on the counter board for a Manager to refund one","High","8","EP-05","the platform S10","R1.1","payments;cr","API; Customer apps; Till"
 "US-033","Story","Get the invoice for a paid order","As a customer who claims lunch on expenses, I want a proper invoice for every paid order, so that I can submit it without asking the branch.
 Persona: PER-01 Clara Mendes (CUS)
 Requirements: FR-PAY-06, FR-PAY-07
@@ -1139,7 +1139,7 @@ Scenario: US-033-AC4 Unpaid orders have no invoice
 
 Scenario: US-033-AC5 The web panel offers the same invoice
   When Clara opens MH-0142 on the web panel
-  Then she can download the same PDF RE-2026-018422","High","5","EP-05","Brasa S4","R1","payments;cr","API; Customer apps; Till"
+  Then she can download the same PDF RE-2026-018422","High","5","EP-05","the platform S4","R1","payments;cr","API; Customer apps; Till"
 "US-034","Story","Refund a canceled paid order","As a branch Manager, I want a canceled paid order to be refunded and its invoice reversed in the POS, with a record of who did what, so that customers get their money back and the books stay right.
 Persona: PER-05 Marta Kowalska (MGR)
 Requirements: FR-PAY-08, FR-PAY-09
@@ -1153,7 +1153,7 @@ Business rules: BR-030, BR-031","Scenario: US-034-AC1 Canceling an online-paid o
 Scenario: US-034-AC2 Failed refunds go to a Manager queue
   Given the provider rejects the refund for SQ-0312 three times
   Then ""Refunds needing attention"" on the counter board lists SQ-0312 with the provider's error
-  And Marta can retry it or mark it ""Refunded outside Brasa"" with a reference
+  And Marta can retry it or mark it ""Refunded outside the platform"" with a reference
 
 Scenario: US-034-AC3 A counter-paid order is refunded at the counter and recorded
   Given SQ-0320 was paid by cash, 14.00, and invoiced
@@ -1167,17 +1167,17 @@ Scenario: US-034-AC4 Counter Staff cannot cancel a paid order
 
 Scenario: US-034-AC5 A refund of a customer cancellation needs no staff action
   Given Tomasz canceled the paid order CP-0057 inside the window
-  Then the refund of 48.62 and the cancellation receipt are processed without any staff action","High","5","EP-05","Brasa S6","R1","payments","API; Customer apps; Till"
-"US-035","Story","Reconcile yesterday's payments","As the Finance Controller, I want a report each morning that matches yesterday's provider transactions, Brasa payments and POS invoices, so that a double charge or a missing invoice is found the next day, not by a customer.
+  Then the refund of 48.62 and the cancellation receipt are processed without any staff action","High","5","EP-05","the platform S6","R1","payments","API; Customer apps; Till"
+"US-035","Story","Reconcile yesterday's payments","As the Finance Controller, I want a report each morning that matches yesterday's provider transactions, the platform payments and POS invoices, so that a double charge or a missing invoice is found the next day, not by a customer.
 Persona: PER-07 Ines Duarte (ADM)
 Requirements: FR-PAY-10
 Business rules: BR-039","Scenario: US-035-AC1 A clean day
-  Given on 2026-09-18 the provider reported 1,284 card transactions, Brasa recorded 1,284 card payments and 2,031 paid orders all have one invoice
+  Given on 2026-09-18 the provider reported 1,284 card transactions, the platform recorded 1,284 card payments and 2,031 paid orders all have one invoice
   When the reconciliation runs at 03:00 on 2026-09-19
   Then the report shows ""Matched"" for all four branches before 08:00
 
 Scenario: US-035-AC2 An unmatched provider transaction is listed
-  Given the provider reported a transaction of 23.40 at 14:22 on Till 2 at Market Hall with no Brasa payment
+  Given the provider reported a transaction of 23.40 at 14:22 on Till 2 at Market Hall with no the platform payment
   Then the report lists it as ""Provider transaction without payment"" with time, amount, card ending and device
 
 Scenario: US-035-AC3 A paid order without an invoice is listed
@@ -1191,7 +1191,7 @@ Scenario: US-035-AC4 Two payments for one order are listed and paged
 
 Scenario: US-035-AC5 Export for the accountants
   When Ines exports the report for 2026-09-18
-  Then she gets a CSV with one row per transaction, payment and invoice and their match status","High","5","EP-05","Brasa S10","R1.1","payments;cr","API; Customer apps; Till"
+  Then she gets a CSV with one row per transaction, payment and invoice and their match status","High","5","EP-05","the platform S10","R1.1","payments;cr","API; Customer apps; Till"
 "US-036","Story","Take a walk-in or dine-in order on the till","As counter staff, I want to build a customized walk-in order from large tiles and settle it in the same flow, so that the counter queue moves faster than on the old POS screen.
 Persona: PER-03 Amir Haddad (CST)
 Requirements: FR-TIL-01, FR-TIL-02, FR-TIL-03, FR-TIL-04
@@ -1208,7 +1208,7 @@ Business rules: BR-014, BR-019, BR-032","Scenario: US-036-AC1 Walk-in order with
 Scenario: US-036-AC2 Dine-in exists only on the till
   Given the order panel is empty
   Then the Take away / Dine in toggle is disabled
-  When Amir adds a Beef Brasa Bowl and selects Dine in
+  When Amir adds a Beef Grill Bowl and selects Dine in
   And places the order
   Then the boards show the order with the label ""DINE-IN AH""
   And when the kitchen marks it Ready it becomes Collected
@@ -1237,7 +1237,7 @@ Scenario Outline: US-036-AC6 Quantity per line on the till
   Examples:
     | quantity | result                                  |
     | 20       | accepted                                |
-    | 21       | the + button is disabled at 20          |","High","8","EP-06","Brasa S3","R1","till-boards","Till; Admin Panel; API"
+    | 21       | the + button is disabled at 20          |","High","8","EP-06","the platform S3","R1","till-boards","Till; Admin Panel; API"
 "US-037","Story","Work the live queue on the till","As counter staff, I want one live queue of every order at my branch where I can take payment, hand over, change or cancel an order, so that I serve customers from the app, the web and the counter in one place.
 Persona: PER-03 Amir Haddad (CST)
 Requirements: FR-TIL-05, FR-TIL-06
@@ -1277,7 +1277,7 @@ Scenario: US-037-AC6 Cancel an unpaid order without deleting it
 Scenario: US-037-AC7 A lock from a crashed till expires
   Given Till 1 called up MH-0136 and then lost power
   When 2 minutes pass without a heartbeat from Till 1
-  Then MH-0136 returns to every queue unchanged","High","8","EP-06","Brasa S4","R1","till-boards","Till; Admin Panel; API"
+  Then MH-0136 returns to every queue unchanged","High","8","EP-06","the platform S4","R1","till-boards","Till; Admin Panel; API"
 "US-038","Story","Cook from the kitchen board","As the kitchen lead, I want a board that lists every order in pickup-time order with exactly what to leave out and add, so that the line cooks the right thing at the right time without paper tickets.
 Persona: PER-04 Sofia Rinaldi (MGR)
 Requirements: FR-TIL-07
@@ -1302,7 +1302,7 @@ Scenario: US-038-AC4 Deposit lines are hidden from the kitchen
 
 Scenario: US-038-AC5 An order open on a till is marked
   Given MH-0136 is called up on Till 1
-  Then the kitchen board shows ""Open on Till 1 (AH)"" on MH-0136 and Sofia can still mark it Ready","High","5","EP-06","Brasa S3","R1","till-boards","Till; Admin Panel; API"
+  Then the kitchen board shows ""Open on Till 1 (AH)"" on MH-0136 and Sofia can still mark it Ready","High","5","EP-06","the platform S3","R1","till-boards","Till; Admin Panel; API"
 "US-039","Story","Run the counter board","As a branch Manager at the counter, I want a board with every order's customer, payment and status, with alerts I cannot miss, so that I can answer customers, handle problems and cancel when needed.
 Persona: PER-05 Marta Kowalska (MGR)
 Requirements: FR-TIL-08, FR-TIL-12
@@ -1334,7 +1334,7 @@ Scenario: US-039-AC4 Starting the board unlocks the sound
 
 Scenario: US-039-AC5 Cancel an unpaid order with a reason
   When Marta cancels unpaid order SQ-0316 with reason ""Customer request""
-  Then SQ-0316 is Canceled and its kitchen minutes are released","High","5","EP-06","Brasa S5","R1","till-boards","Till; Admin Panel; API"
+  Then SQ-0316 is Canceled and its kitchen minutes are released","High","5","EP-06","the platform S5","R1","till-boards","Till; Admin Panel; API"
 "US-040","Story","See who took an order and its state at a glance","As the kitchen lead, I want each order row to show who took it and whether it is late, in a way I can read from across the kitchen, so that I can ask the right person and cook the late order first.
 Persona: PER-04 Sofia Rinaldi (MGR)
 Requirements: FR-TIL-09
@@ -1369,7 +1369,7 @@ Scenario: US-040-AC3 A late till order keeps its tint and shows Late
 
 Scenario: US-040-AC4 The iPad clock does not change the badge
   Given Till 2's clock is 4 minutes fast
-  Then MH-0134 shows the same badge on Till 2 as on the kitchen board","High","3","EP-06","Brasa S4","R1","till-boards","Till; Admin Panel; API"
+  Then MH-0134 shows the same badge on Till 2 as on the kitchen board","High","3","EP-06","the platform S4","R1","till-boards","Till; Admin Panel; API"
 "US-041","Story","Recover the live view after a connection drop","As counter staff, I want the till to tell me when it is not live and to catch up by itself when the connection returns, so that I never work from a frozen queue again.
 Persona: PER-03 Amir Haddad (CST)
 Requirements: FR-TIL-10, FR-TIL-11
@@ -1404,7 +1404,7 @@ Scenario Outline: US-041-AC5 Staleness is always visible
     | now      | indicator                                                                    |
     | 12:21:49 | ""Live""                                                                       |
     | 12:21:50 | ""Reconnecting - last update 12:21:40"" and the queue grayed out              |
-    | 12:22:40 | a full-width banner ""Not live. Do not use this screen for new orders.""      |","High","8","EP-06","Brasa S8","R1.1","till-boards;cr","Till; Admin Panel; API"
+    | 12:22:40 | a full-width banner ""Not live. Do not use this screen for new orders.""      |","High","8","EP-06","the platform S8","R1.1","till-boards;cr","Till; Admin Panel; API"
 "US-042","Story","Review the day's operations","As a branch Manager, I want a daily summary of orders, timeliness, cancellations and no-shows by channel, so that I can see whether the kitchen kept its promises and plan staff for the next week.
 Persona: PER-05 Marta Kowalska (MGR)
 Requirements: FR-TIL-13
@@ -1430,4 +1430,4 @@ Scenario: US-042-AC3 Managers see their branches only
 
 Scenario: US-042-AC4 Export
   When Marta exports the summary for 2026-09-14 to 2026-09-18
-  Then she gets a CSV with one row per branch, day and channel","Medium","3","EP-06","Brasa S6","R1","till-boards","Till; Admin Panel; API"
+  Then she gets a CSV with one row per branch, day and channel","Medium","3","EP-06","the platform S6","R1","till-boards","Till; Admin Panel; API"

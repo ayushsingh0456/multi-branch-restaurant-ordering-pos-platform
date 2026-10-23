@@ -1,16 +1,16 @@
-# Brasa: Business Analysis Case Study for a Restaurant Pickup-Ordering and Till Platform
+# Multi-Branch Restaurant Ordering & POS Platform: Business Analysis Case Study for a Restaurant Pickup-Ordering and Till Platform
 
 **An end-to-end, traceable Business Analysis portfolio for a live ordering platform with four apps on one backend.** It runs from discovery to production incident reviews and a spec-driven feature.
 
-> **Fictional case study.** Brasa, Brasa Grill, its branches, and every person, figure and record in this repository are fictional, and all data is synthetic. The work is modeled on real-world delivery experience and contains no client material. Compliance content shows how requirements support regulations; it is not legal advice.
+> **Case study of a real project.** Client details are withheld, and names, figures and records in this repository are changed or synthetic. Compliance content is written to show how requirements support regulations; it is not legal or tax advice.
 
-> **Read it in the browser.** The [case study page](https://ayushsingh0456.github.io/case-studies/brasa.html) walks through the work, and the [document library](https://ayushsingh0456.github.io/library.html?project=brasa) opens every file here with diagrams rendered. Formatted PDFs: [BRD](https://ayushsingh0456.github.io/assets/docs/brasa-BRD.pdf) · [SRS](https://ayushsingh0456.github.io/assets/docs/brasa-SRS.pdf).
+> **Read it in the browser.** The [case study page](https://ayushsingh0456.github.io/case-studies/brasa.html) walks through the work, and the [document library](https://ayushsingh0456.github.io/library.html?project=restaurant) opens every file here with diagrams rendered. Formatted PDFs: [BRD](https://ayushsingh0456.github.io/assets/docs/brasa-BRD.pdf) · [SRS](https://ayushsingh0456.github.io/assets/docs/brasa-SRS.pdf).
 
 ---
 
 ## The product in one paragraph
 
-Brasa Grill (fictional) sells grill bowls and wraps from four branches in one EU country. Before Brasa, lunch customers either queued or phoned, the counter wrote orders on paper, and the kitchen guessed when to start. Brasa is one platform with four apps:
+the restaurant group sells grill bowls and wraps from four branches in one EU country. Before the platform, lunch customers either queued or phoned, the counter wrote orders on paper, and the kitchen guessed when to start. The platform is one platform with four apps:
 - a **Customer Mobile App** (Flutter, iOS and Android) and a **Customer Web Ordering panel** (React), where customers sign in with an emailed code, customize items, pick an exact pickup minute and pay online or at the counter;
 - a **Counter Staff iPad till** (Flutter, landscape) for walk-in and dine-in orders by cash or card;
 - an **Admin Panel** (React) for Administrators and Managers, with live kitchen and counter boards.
@@ -131,7 +131,7 @@ README.md
 - **Kitchen minutes, not 15-minute slots.** A pickup minute is offered only if the order's kitchen minutes are free. In the prototype test, fixed slots left up to 40% of line capacity unused while still overbooking big orders (DEC-02, [ADR-001](03-design/architecture/adr/ADR-001-server-authoritative-slot-reservation.md)).
 - **Walk-ins are never refused.** The till can always overbook (BR-019). When online pre-orders crowded out walk-ins at Station Quarter, CR-006 capped the online share of each rush quarter-hour instead of limiting the counter.
 - **No credit for removed ingredients.** Removing onions saves no cost, and credits made prices drift from the POS articles (DEC-03, BR-021).
-- **Receipts stay with a certified POS provider.** Brasa never signs fiscal receipts; it sends complete lines and rounds VAT per rate group exactly as the POS does (DEC-10, DEC-11).
+- **Receipts stay with a certified POS provider.** the platform never signs fiscal receipts; it sends complete lines and rounds VAT per rate group exactly as the POS does (DEC-10, DEC-11).
 - **Fair consequences.** An unpaid no-show leads to 30 days of Prepay-only, not a suspension, after 9 of 23 suspensions were disputed in three weeks (CR-003).
 - **Saying no with evidence.** Cancel-until-Ready (CR-005) was rejected with a food-waste estimate of about EUR 1,020 a month; guest checkout (CR-002) was rejected because reminders and the no-show policy need a verified email.
 - **Incidents change requirements.** A stale till after a router restart (INC-2026-004) led to sequenced events and snapshot resync (CR-004, [ADR-002](03-design/architecture/adr/ADR-002-live-updates-snapshot-and-sequence.md)). A double charge on retry (INC-2026-009) led to payment attempts with idempotency keys and an invoice outbox (CR-007, [ADR-003](03-design/architecture/adr/ADR-003-idempotent-payments-and-invoice-outbox.md)).
@@ -162,4 +162,4 @@ ISO/IEC/IEEE 29148 (requirements) · ISO/IEC 25010 (quality model) · ISO/IEC/IE
 
 LinkedIn: [linkedin.com/in/ayush-singh-914495189](https://www.linkedin.com/in/ayush-singh-914495189/)
 
-This case study is self-directed. It is modeled on real-world delivery experience and uses a fictional product, so it contains no client material and discloses no employer or client information.
+This case study is based on a project I worked on as Business Analyst. Client and employer details are withheld to protect confidentiality.

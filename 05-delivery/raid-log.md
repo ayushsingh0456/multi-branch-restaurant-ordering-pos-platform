@@ -1,4 +1,4 @@
-# RAID Log: Brasa
+# RAID Log: Multi-Branch Restaurant Ordering & POS Platform
 
 ## Document control
 
@@ -11,7 +11,7 @@
 | Last updated | 2026-09-28 |
 | Reviewers | Product Owner (Operations Director); Tech Lead; Finance Controller |
 
-**Purpose and scope.** Risks, assumptions, issues and dependencies for Brasa from discovery to R1.2, with owners, responses and status. Scoring: likelihood and impact from 1 (low) to 5 (high); exposure = likelihood x impact. Exposure 12 or more is reviewed at every CCB.
+**Purpose and scope.** Risks, assumptions, issues and dependencies for the platform from discovery to R1.2, with owners, responses and status. Scoring: likelihood and impact from 1 (low) to 5 (high); exposure = likelihood x impact. Exposure 12 or more is reviewed at every CCB.
 
 ## 1. Risks
 
@@ -55,8 +55,8 @@
 |---|---|---|---|---|
 | DEP-01 | Sandbox and OAuth credentials for each branch's POS account | Cloud POS provider | S2 | Delivered 2026-03-25 |
 | DEP-02 | Hosted checkout, card reader SDK, sandbox and test cards | Card payment provider | S3 | Delivered 2026-03-20 |
-| DEP-03 | App store accounts owned by Brasa Grill | Brasa Grill | S5 | Delivered 2026-04-30 |
-| DEP-04 | Branch Wi-Fi with 4G fallback router at all four branches | Brasa Grill facilities | Pilot | Fallback installed at all branches by 2026-07-31 (after INC-2026-004) |
+| DEP-03 | App store accounts owned by the restaurant group | the restaurant group | S5 | Delivered 2026-04-30 |
+| DEP-04 | Branch Wi-Fi with 4G fallback router at all four branches | the restaurant group facilities | Pilot | Fallback installed at all branches by 2026-07-31 (after INC-2026-004) |
 | DEP-05 | Legal wording for the order button | Legal counsel | S4 | Delivered 2026-04-22 |
 
 ## Related documents

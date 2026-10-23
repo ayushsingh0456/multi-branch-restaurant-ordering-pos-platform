@@ -1,4 +1,4 @@
-# Software Requirements Specification (SRS): Brasa
+# Software Requirements Specification (SRS): Multi-Branch Restaurant Ordering & POS Platform
 
 ## Document control
 
@@ -12,7 +12,7 @@
 | Reviewers | Product Owner (Operations Director); Tech Lead; QA Lead; UX Designer; Finance Controller; Data Protection Officer (external) |
 | Change control | After a baseline, this document changes only through the [change request log](../05-delivery/change-request-log.md). Each approved CR updates this SRS, the [business rules](business-rules.md), the [traceability matrix](requirements-traceability-matrix.md) and the affected user stories in the same pull request. |
 
-**Purpose and scope.** This SRS specifies what Brasa does, how it interfaces with people and other systems, and the quality it must meet. It covers Release 1 (R1, live since 2026-06-29) and the increments R1.1 and R1.2. It is the contract between the Product Owner and the delivery team, and the basis for test design. Every requirement is written to be verifiable; section 4 says how.
+**Purpose and scope.** This SRS specifies what the platform does, how it interfaces with people and other systems, and the quality it must meet. It covers Release 1 (R1, live since 2026-06-29) and the increments R1.1 and R1.2. It is the contract between the Product Owner and the delivery team, and the basis for test design. Every requirement is written to be verifiable; section 4 says how.
 
 ## 1. Introduction
 
@@ -28,7 +28,7 @@ The layout follows the SRS information item in ISO/IEC/IEEE 29148:2018. The over
 
 ### 1.2 Scope
 
-Brasa is the pickup-ordering and in-store till platform of Brasa Grill (fictional), a chain of four grill-bowl and wrap restaurants in one EU member state. Four applications share one backend:
+The platform is the pickup-ordering and in-store till platform of the restaurant group, a chain of four grill-bowl and wrap restaurants in one EU member state. Four applications share one backend:
 - **Customer Mobile App** (iOS and Android) and **Customer Web Ordering panel**: customers choose a branch, customize grill bowls and wraps, pick a pickup minute, pay online or at the counter, and follow the order live.
 - **Counter Staff iPad till**: staff take walk-in and dine-in orders, settle by cash or card, and work the live queue of orders from every channel.
 - **Admin Panel**: Administrators configure branches, menus and staff; Managers run the kitchen and counter boards of their branches.
@@ -41,7 +41,7 @@ Out of scope:
 - Table service and self-order kiosks.
 - Payroll, rota planning and stock control.
 
-The reasons are in [BRD section 5.3](BRD.md#53-out-of-scope). The business outcomes Brasa must move are OBJ-01 to OBJ-06 ([BRD section 4](BRD.md#4-business-objectives)).
+The reasons are in [BRD section 5.3](BRD.md#53-out-of-scope). The business outcomes the platform must move are OBJ-01 to OBJ-06 ([BRD section 4](BRD.md#4-business-objectives)).
 
 ### 1.3 Product overview
 
@@ -101,7 +101,7 @@ Terms are defined in the [glossary](glossary.md). Conventions used in this docum
 
 ### 2.1 Product perspective
 
-Brasa is a new product. It replaces phone pre-orders written on paper, the standalone counter POS screen and the paper tickets passed to the kitchen, described in [current-vs-future-state.md](../01-discovery/current-vs-future-state.md). Brasa owns the order, the pickup slot and the live state of the kitchen. It does not own fiscal receipts or card data: invoices and receipts are raised in each branch's account at the cloud POS and invoicing provider, and card data stays with the card payment provider.
+The platform is a new product. It replaces phone pre-orders written on paper, the standalone counter POS screen and the paper tickets passed to the kitchen, described in [current-vs-future-state.md](../01-discovery/current-vs-future-state.md). The platform owns the order, the pickup slot and the live state of the kitchen. It does not own fiscal receipts or card data: invoices and receipts are raised in each branch's account at the cloud POS and invoicing provider, and card data stays with the card payment provider.
 
 ```mermaid
 flowchart LR
@@ -112,12 +112,12 @@ flowchart LR
     MGR["Manager (MGR)"]
     ADM["Administrator (ADM)"]
   end
-  subgraph BRASA["Brasa system boundary"]
+  subgraph RESTAURANT["the platform system boundary"]
     MOB["Customer Mobile App"]
     WEB["Customer Web Ordering panel"]
     TIL["Counter Staff iPad till"]
     ADP["Admin Panel and boards"]
-    API["Brasa API /v1,<br/>Socket.IO and jobs"]
+    API["the platform API /v1,<br/>Socket.IO and jobs"]
   end
   subgraph EXT["External services"]
     POS["IF-01 Cloud POS and<br/>invoicing provider"]
@@ -206,15 +206,15 @@ What the user classes are like, and what that means for design:
 | Socket.IO events tell clients that something changed; the versioned branch snapshot over REST is the source of truth after any reconnect (BR-045). | [ADR-002](../03-design/architecture/adr/ADR-002-live-updates-snapshot-and-sequence.md) |
 | Payments are attempts with an idempotency key; invoices are raised through an outbox, never inside the payment request (BR-035, BR-037). | [ADR-003](../03-design/architecture/adr/ADR-003-idempotent-payments-and-invoice-outbox.md) |
 | REST under `/v1`; JSON with camelCase; cursor pagination; RFC 9457 problem details; `Idempotency-Key` on unsafe POSTs. | [API guidelines](../04-api/api-guidelines.md) |
-| Card data never enters Brasa: online payments use the provider's hosted checkout and counter payments use the provider's card reader SDK (NFR-SEC-03). | Compliance mapping |
-| Fiscal receipts and invoices are raised only in the branch's POS account; Brasa stores the reference and PDF link. | IF-01 |
+| Card data never enters the platform: online payments use the provider's hosted checkout and counter payments use the provider's card reader SDK (NFR-SEC-03). | Compliance mapping |
+| Fiscal receipts and invoices are raised only in the branch's POS account; the platform stores the reference and PDF link. | IF-01 |
 
 ### 2.6 Assumptions and dependencies
 
 These are tracked with owners in the [RAID log](../05-delivery/raid-log.md). The ones that would change the meaning of a requirement if they turned out false:
 - Each branch has one production line. A kitchen minute is the unit of capacity (TBD-08 covers a second line).
 - One legal entity owns all four branches, so one online merchant account at the card payment provider serves all branches (TBD-07).
-- The cloud POS provider meets the national cash-register and receipt rules for every invoice it raises. Brasa sends complete lines and VAT; it does not sign receipts itself.
+- The cloud POS provider meets the national cash-register and receipt rules for every invoice it raises. The platform sends complete lines and VAT; it does not sign receipts itself.
 - Tips are not part of the taxable order total; the Finance Controller confirmed this with the external tax adviser on 2026-05-14 (A-04).
 - Branch Wi-Fi with a 4G fallback keeps the till online. The till has no offline mode in R1 (TBD-10).
 
@@ -283,7 +283,7 @@ Screen designs are in the [wireframes](../03-design/wireframes/README.md). These
 | iPad (landscape) | Till | Runs the till in landscape only; the screen does not sleep while the till is open. | Staff use another iPad; drafts are per device (FR-TIL-04), so nothing transfers. |
 | Card reader (card payment provider) | Counter card payments (FR-PAY-04) | Paired over Bluetooth through the provider's SDK; the merchant signs in on the device once per day. | Cash or "pay later" (unpaid) remain available. |
 | Kitchen and counter displays | Boards (FR-TIL-07, FR-TIL-08) | 24-inch display, browser in full-screen board mode, sound enabled after a first interaction. | Any device with a browser can open the board; the live indicator shows the state (FR-TIL-11). |
-| Receipt printer | Fiscal receipts | Owned by the POS provider's integration, outside Brasa. | Customer receives the invoice in the app (FR-PAY-07). |
+| Receipt printer | Fiscal receipts | Owned by the POS provider's integration, outside the platform. | Customer receives the invoice in the app (FR-PAY-07). |
 | Customer phone | Push, camera for profile picture | Push only after the customer allows notifications (FR-NTF-01). | Email reminders still run (BR-040). |
 
 #### 3.1.3 Software interfaces
@@ -336,9 +336,9 @@ Customer sign-in with an emailed one-time code, staff sign-in, roles, employee a
 Notes and edge cases:
 - **No passwords for customers.** The account is created at the first successful code entry. A new account has no name or phone; checkout asks for a first name so the counter can call the order (field spec below).
 - **Enumeration.** The code request returns the same response whether or not the email exists, except for a suspended account, which is told to contact the branch. A staff email entered in a customer app gets the same neutral response and no code (BR-001). Discovery found that the old flow told callers "this email is not available", which exposed staff addresses.
-- **Code lifetime.** The previous system displayed "valid for 10 minutes" but never enforced it. Brasa enforces it server-side (TC-IAM-002).
+- **Code lifetime.** The previous system displayed "valid for 10 minutes" but never enforced it. The platform enforces it server-side (TC-IAM-002).
 - **Role is fixed.** Changing an employee from Counter Staff to Manager means deactivating the account and creating a new one, so audit history never mixes privilege levels (BR-003, DEC-04).
-- **Deactivation is immediate.** The old system let deactivated employees keep signing in. Brasa revokes refresh tokens and disconnects live sessions within 60 seconds (BR-005).
+- **Deactivation is immediate.** The old system let deactivated employees keep signing in. The platform revokes refresh tokens and disconnects live sessions within 60 seconds (BR-005).
 - **Sign-out on one device.** Removing the push token of the current device only (BR-043). The previous system cleared push for every device of the account.
 - **Kitchen board session.** In R1 the kitchen display runs under the shift Manager's board-mode session. A board-only role is TBD-01.
 
@@ -391,9 +391,9 @@ Notes and edge cases:
 - **One rush window per day.** Saturday dinner has a different window from weekday lunch, so the window is set per weekday. Two windows on one day (lunch and dinner) is TBD-02.
 - **Kitchen block is contiguous.** An order's kitchen minutes are the P minutes immediately before its pickup minute (BR-012). A single free minute between two orders can only be used by an order that needs one minute. Appendix B, WE-2, shows this.
 - **Rush factor is decided by the pickup minute,** not by the time of ordering. The rush window end is exclusive: with rush 11:45-13:30, a pickup at 13:29 uses the rush factor and 13:30 does not.
-- **Busy window validation.** The previous system accepted an end before the start and windows outside opening hours. Brasa validates both (field spec below) and keeps the window for today only.
-- **Delay protection releases itself.** In the previous system staff had to free blocked minutes by hand and often forgot, so the afternoon looked fully booked. Brasa releases blocks automatically when no order is late (BR-016); the manual release stays for Managers.
-- **POS connection.** Only cash-type methods and the provider's card method are imported; other methods would not settle through Brasa and are ignored with a note on the connection screen.
+- **Busy window validation.** The previous system accepted an end before the start and windows outside opening hours. The platform validates both (field spec below) and keeps the window for today only.
+- **Delay protection releases itself.** In the previous system staff had to free blocked minutes by hand and often forgot, so the afternoon looked fully booked. The platform releases blocks automatically when no order is late (BR-016); the manual release stays for Managers.
+- **POS connection.** Only cash-type methods and the provider's card method are imported; other methods would not settle through the platform and are ignored with a note on the connection screen.
 
 **Field specification: branch order timings and hours (Admin Panel)**
 
@@ -468,7 +468,7 @@ Notes and edge cases:
 - **Order too large (BR-014).** An online cart above 30 kitchen units gets no pickup times and the message "Orders over 30 bowls and wraps need a call to the branch so the kitchen can plan." with the branch phone number.
 - **One cancellation boundary.** In the previous system the mobile app used "more than 15 minutes" and the web panel "15 minutes or more". BR-030 sets one rule for both: canceling at exactly 15:00 minutes before pickup is allowed (DEF-022, SRS v1.2).
 - **Customer apps show the same history.** The previous web panel showed only today's orders while the app showed 30 days. Both now show 90 days (FR-ORD-09).
-- **Order number (BR-033).** The previous reference was derived from the pickup time and was not unique. Brasa issues a branch-coded number such as MH-0142 that staff can call out.
+- **Order number (BR-033).** The previous reference was derived from the pickup time and was not unique. The platform issues a branch-coded number such as MH-0142 that staff can call out.
 
 **Field specification: item customization sheet (both apps)**
 
@@ -506,7 +506,7 @@ Online payment with tip, counter settlement by cash or card, single-capture paym
 | FR-PAY-07 | The system shall let a customer view and download the invoice PDF of a paid order in both customer apps. | Must | R1 | CUS | BR-037 |
 | FR-PAY-08 | The system shall refund a canceled online-paid order in full through the provider's refund API, and route refunds that still fail after 3 retries to a Manager queue. | Must | R1 | SYS, MGR | BR-030, BR-031 |
 | FR-PAY-09 | The system shall raise a cancellation receipt in the POS account when an invoiced order is canceled, and let a Manager record a counter refund with method and reference. | Must | R1 | SYS, MGR | BR-031 |
-| FR-PAY-10 | The system shall reconcile the previous day's provider transactions, Brasa payments and POS invoices each night and show mismatches to Administrators. | Must | R1.1 | SYS, ADM | BR-039 |
+| FR-PAY-10 | The system shall reconcile the previous day's provider transactions, the platform payments and POS invoices each night and show mismatches to Administrators. | Must | R1.1 | SYS, ADM | BR-039 |
 
 Notes and edge cases:
 - **Pay online at any time before collection.** An order placed "pay at the counter" can still be paid online from the order card until it is collected or canceled. The previous web panel had no online payment; both apps now do.
@@ -548,10 +548,10 @@ The iPad till, the live queue, the kitchen and counter boards in the Admin Panel
 | FR-TIL-13 | The Admin Panel shall show a daily operations summary per branch and channel (orders, ready on time, late, canceled, no-shows, overbooked, sales) with CSV export. | Should | R1 | ADM, MGR | — |
 
 Notes and edge cases:
-- **Drafts per device.** In the previous system two tills signed in with the same account shared one draft and overwrote each other. Brasa keeps the draft per device and per account (DEF-038).
+- **Drafts per device.** In the previous system two tills signed in with the same account shared one draft and overwrote each other. The platform keeps the draft per device and per account (DEF-038).
 - **Called-up orders are locked.** An order called up on one till disappears from other tills' queues and shows "Open on Till 2 (AH)" on the boards until it is saved or released (BR-034).
-- **Till cancellations are not deletions.** The previous till removed canceled orders permanently and left their invoices outstanding. Brasa keeps every canceled order with reason and actor, and raises a cancellation receipt where needed (BR-031).
-- **Two-channel display.** The previous boards used one color per row with a precedence order, so a late till order showed the employee's color and its lateness was hidden. Brasa separates the tint (who or what) from the status badge (Queued, Preparing, Late, Ready, Canceled) (business rules table 3.4).
+- **Till cancellations are not deletions.** The previous till removed canceled orders permanently and left their invoices outstanding. The platform keeps every canceled order with reason and actor, and raises a cancellation receipt where needed (BR-031).
+- **Two-channel display.** The previous boards used one color per row with a precedence order, so a late till order showed the employee's color and its lateness was hidden. The platform separates the tint (who or what) from the status badge (Queued, Preparing, Late, Ready, Canceled) (business rules table 3.4).
 - **Live indicator and resync (CR-004).** INC-2026-004 showed that a till could reconnect after a network drop without re-joining its branch room and then show a frozen queue for 40 minutes with no warning. FR-TIL-11 makes staleness visible and self-healing.
 - **Alert sound.** Browsers block sound until the user interacts with the page. Board mode starts with a "Start board" button, which also unlocks sound.
 
@@ -619,8 +619,8 @@ The 28 NFRs are in [non-functional-requirements.md](non-functional-requirements.
 | NFR-PERF-01 | Pickup-slot list in 800 ms or less at p95 | Customers choose a time in a lunch break |
 | NFR-PERF-03 | Order change on every screen within 2 s at p95 | The kitchen works from the board, not from paper |
 | NFR-REL-02 | Current state within 5 s of reconnect; stale state never shown without a warning | INC-2026-004 |
-| NFR-REL-04 | POS outage never blocks ordering or payment | Fiscal invoices are raised outside Brasa |
-| NFR-SEC-03 | No card data in Brasa systems | Keeps PCI DSS scope to SAQ A for e-commerce |
+| NFR-REL-04 | POS outage never blocks ordering or payment | Fiscal invoices are raised outside the platform |
+| NFR-SEC-03 | No card data in the platform systems | Keeps PCI DSS scope to SAQ A for e-commerce |
 | NFR-USE-02 | Walk-in till transaction 50 s median or less | OBJ-06 |
 | NFR-ACC-02 | Board status never by color alone | Kitchen legibility and WCAG 1.4.1 |
 | NFR-OBS-02 | Business anomaly alerts, including double capture | INC-2026-009 |

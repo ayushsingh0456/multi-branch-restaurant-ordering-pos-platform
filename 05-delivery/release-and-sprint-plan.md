@@ -1,4 +1,4 @@
-# Release and Sprint Plan: Brasa
+# Release and Sprint Plan: Multi-Branch Restaurant Ordering & POS Platform
 
 ## Document control
 
@@ -11,7 +11,7 @@
 | Last updated | 2026-09-28 |
 | Reviewers | Product Owner (Operations Director); Tech Lead; QA Lead |
 
-**Purpose and scope.** How Brasa was planned and delivered: milestones, releases, sprint goals with planned and completed points, ceremonies, and the rollout from one pilot branch to four. It covers discovery in January 2026 to R1.2 on 2026-09-28.
+**Purpose and scope.** How the platform was planned and delivered: milestones, releases, sprint goals with planned and completed points, ceremonies, and the rollout from one pilot branch to four. It covers discovery in January 2026 to R1.2 on 2026-09-28.
 
 ## 1. Milestones
 
@@ -33,7 +33,7 @@
 
 ```mermaid
 gantt
-  title Brasa delivery timeline 2026
+  title the platform delivery timeline 2026
   dateFormat YYYY-MM-DD
   axisFormat %d %b
   section Discovery and requirements

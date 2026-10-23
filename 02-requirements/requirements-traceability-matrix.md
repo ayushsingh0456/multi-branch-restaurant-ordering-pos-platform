@@ -1,4 +1,4 @@
-# Requirements Traceability Matrix: Brasa
+# Requirements Traceability Matrix: Multi-Branch Restaurant Ordering & POS Platform
 
 ## Document control
 

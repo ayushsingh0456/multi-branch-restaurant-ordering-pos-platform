@@ -1,4 +1,4 @@
-# State Machines: Brasa
+# State Machines: Multi-Branch Restaurant Ordering & POS Platform
 
 ## Document control
 

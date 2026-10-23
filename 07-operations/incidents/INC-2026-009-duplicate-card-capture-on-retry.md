@@ -75,9 +75,9 @@ All times local.
 | 20:22 | Market Hall manager calls the support line | Branch Manager |
 | 20:31 | On-call developer acknowledges; SEV-2 declared at 20:36 with the Tech Lead as IC | IC |
 | 20:30 | POS provider latency back to normal | POS provider |
-| 20:52 | Cause identified: orders with two provider transactions, the second without a Brasa payment, each after a confirmation timeout | Technical Lead |
+| 20:52 | Cause identified: orders with two provider transactions, the second without a the platform payment, each after a confirmation timeout | Technical Lead |
 | **21:05** | **Mitigated:** message to all branch managers: "After a card error do not tap Retry; check the queue; if the order is not Paid, take another payment method." Branches already closed at 21:00 | Communications Lead |
-| 2026-08-23 09:00 | BA impact analysis from the provider's transaction report and Brasa payments (amounts and references only): 23 duplicates, EUR 412.60 | Business Analyst |
+| 2026-08-23 09:00 | BA impact analysis from the provider's transaction report and the platform payments (amounts and references only): 23 duplicates, EUR 412.60 | Business Analyst |
 | 2026-08-23 10:30 | Finance Controller refunds the 23 duplicates through the provider dashboard; BA reconciles the refund list to the impact list | Finance Controller, Business Analyst |
 | 2026-08-23 14:00 | All refunds accepted by the provider; apology emails sent to 9 account holders | Finance Controller, Communications Lead |
 | **2026-08-24 07:30** | **Resolved:** hotfix 1.0.6: after a timeout the till offers only "Verify payment" | Technical Lead |
@@ -114,10 +114,10 @@ sequenceDiagram
 ## 4. Detection analysis
 
 Detection took 2 hours 10 minutes and came from a customer.
-- **No money signal existed.** Nothing compared provider transactions with Brasa payments, and nothing alerted on two successful charges for one order.
+- **No money signal existed.** Nothing compared provider transactions with the platform payments, and nothing alerted on two successful charges for one order.
 - **The till's error looked routine.** Staff had seen occasional confirmation errors before and had been told to retry.
 - **The POS slowness was visible only on the provider's status page,** which nobody watched on a Saturday evening.
-- **With today's controls:** the second charge cannot happen, because the attempt ID is the provider's idempotency key and a Pending attempt blocks new charges (BR-035). If a second capture still occurred (for example on a reader outside Brasa), NFR-OBS-02 (a) pages within 5 minutes and the nightly reconciliation lists it (BR-039). The invoice outbox age alert (NFR-OBS-02 e) would have shown the POS slowness by 18:13.
+- **With today's controls:** the second charge cannot happen, because the attempt ID is the provider's idempotency key and a Pending attempt blocks new charges (BR-035). If a second capture still occurred (for example on a reader outside the platform), NFR-OBS-02 (a) pages within 5 minutes and the nightly reconciliation lists it (BR-039). The invoice outbox age alert (NFR-OBS-02 e) would have shown the POS slowness by 18:13.
 
 ## 5. Response analysis
 

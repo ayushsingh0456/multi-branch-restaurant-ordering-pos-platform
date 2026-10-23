@@ -1,4 +1,4 @@
-# Data Dictionary: Brasa
+# Data Dictionary: Multi-Branch Restaurant Ordering & POS Platform
 
 ## Document control
 
@@ -11,7 +11,7 @@
 | Last updated | 2026-09-18 |
 | Reviewers | Tech Lead; Finance Controller (money fields); Data Protection Officer (external, classification and retention) |
 
-**Purpose and scope.** Field-level definitions of the Brasa data model in the [ERD](erd.md): type, rules, the business rule each field serves, data classification and retention. API field names are the same in camelCase ([openapi.yaml](../../04-api/openapi.yaml)).
+**Purpose and scope.** Field-level definitions of the platform data model in the [ERD](erd.md): type, rules, the business rule each field serves, data classification and retention. API field names are the same in camelCase ([openapi.yaml](../../04-api/openapi.yaml)).
 
 ## 1. Conventions
 
@@ -218,7 +218,7 @@ Added in R1.2 (CR-006). A read model for row A9 of business rules table 3.1; the
 | Entity | Field | Rules | Rule | Class |
 |---|---|---|---|---|
 | PAYMENT_EVENT | providerEventId (unique), attemptId, type, signatureVerified, processedAt | Processed once | BR-038 | F |
-| REFUND | id, orderId, amountCents, method (ONLINE, CASH, COUNTER_CARD, OUTSIDE_BRASA), status, reference, attempts, lastError, actorId | Full refunds only in R1 (TBD-03); 3 retries then NEEDS_ATTENTION | BR-030, BR-031 | F |
+| REFUND | id, orderId, amountCents, method (ONLINE, CASH, COUNTER_CARD, OUTSIDE_RESTAURANT), status, reference, attempts, lastError, actorId | Full refunds only in R1 (TBD-03); 3 retries then NEEDS_ATTENTION | BR-030, BR-031 | F |
 | RECONCILIATION_RUN | date, startedAt, status, providerCount, paymentCount, invoiceCount, mismatches[] | Runs at 03:00; results before 08:00 | BR-039 | F |
 
 ## 7. Platform

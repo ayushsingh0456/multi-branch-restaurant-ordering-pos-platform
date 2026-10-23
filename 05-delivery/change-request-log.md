@@ -1,4 +1,4 @@
-# Change Request Log: Brasa
+# Change Request Log: Multi-Branch Restaurant Ordering & POS Platform
 
 ## Document control
 

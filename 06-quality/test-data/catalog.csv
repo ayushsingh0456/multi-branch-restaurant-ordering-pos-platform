@@ -20,7 +20,7 @@ ADD-05,ALL,ADD_ON,Garlic sauce,,,0.50,,,EGGS,,yes,,
 ADD-06,ALL,ADD_ON,Chili sauce,,,0.50,,,,,yes,,
 D-01,ALL,DEPOSIT,Bottle deposit,,no,0.25,20,20,,no,yes,,One level only (BR-026); synthetic rate
 P-MH-01,LOC-01,PRODUCT,Chicken Grill Bowl,Grill Bowls,yes,9.40,10,10,SESAME,yes,yes,,Ingredients ING-01 to ING-06; add-ons ADD-01 to ADD-05
-P-MH-02,LOC-01,PRODUCT,Beef Brasa Bowl,Grill Bowls,yes,10.90,10,10,MUSTARD,yes,yes,,"Ingredients ING-01, ING-03, ING-04, ING-05; add-ons ADD-01 to ADD-05"
+P-MH-02,LOC-01,PRODUCT,Beef Grill Bowl,Grill Bowls,yes,10.90,10,10,MUSTARD,yes,yes,,"Ingredients ING-01, ING-03, ING-04, ING-05; add-ons ADD-01 to ADD-05"
 P-MH-03,LOC-01,PRODUCT,Halloumi Veggie Bowl,Grill Bowls,yes,9.20,10,10,MILK,yes,yes,,
 P-MH-04,LOC-01,PRODUCT,Chicken Wrap,Wraps,yes,7.90,10,10,GLUTEN,yes,yes,,"Ingredients ING-02, ING-03, ING-07, ING-08; add-ons ADD-02, ADD-03, ADD-05, ADD-06"
 P-MH-05,LOC-01,PRODUCT,Falafel Wrap,Wraps,yes,7.60,10,10,GLUTEN,yes,yes,,"Ingredients ING-03, ING-05, ING-08, ING-09"
@@ -36,7 +36,7 @@ P-CP-01,LOC-04,PRODUCT,Chicken Grill Bowl,Grill Bowls,yes,8.90,10,10,SESAME,yes,
 P-CP-05,LOC-04,PRODUCT,Falafel Wrap,Wraps,yes,7.20,10,10,GLUTEN,yes,yes,,"With Tahini dressing: gluten, sesame (US-017)"
 P-CP-07,LOC-04,PRODUCT,Sparkling lemonade 0.33 l,Drinks,no,2.40,20,20,,yes,yes,,
 P-SQ-01,LOC-02,PRODUCT,Chicken Grill Bowl,Grill Bowls,yes,9.40,10,10,,yes,yes,,Station Quarter
-P-SQ-02,LOC-02,PRODUCT,Beef Brasa Bowl,Grill Bowls,yes,10.90,10,10,,yes,yes,,Station Quarter
+P-SQ-02,LOC-02,PRODUCT,Beef Grill Bowl,Grill Bowls,yes,10.90,10,10,,yes,yes,,Station Quarter
 P-SQ-04,LOC-02,PRODUCT,Chicken Wrap,Wraps,yes,7.90,10,10,,yes,yes,,Station Quarter
 P-SQ-05,LOC-02,PRODUCT,Falafel Wrap,Wraps,yes,7.60,10,10,,yes,yes,,Station Quarter
 P-SQ-06,LOC-02,PRODUCT,Fries,Sides,yes,3.20,10,10,,yes,yes,,Station Quarter

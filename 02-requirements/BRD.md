@@ -1,4 +1,4 @@
-# Business Requirements Document (BRD): Brasa Release 1
+# Business Requirements Document (BRD): Multi-Branch Restaurant Ordering & POS Platform Release 1
 
 ## Document control
 
@@ -18,13 +18,13 @@
 | 1.1 | 2026-04-10 | CR-001 (allergen information before purchase) added to BN-03; CR-002 (guest checkout) recorded as rejected. |
 | 1.2 | 2026-09-18 | Post-launch update: results to date for OBJ-01 to OBJ-06; BN-05, BN-06 and BN-07 sharpened by CR-003, CR-004 and CR-007 after INC-2026-004 and INC-2026-009; R1.2 scope (CR-006). |
 
-**Purpose.** This document states why Brasa exists, which business outcomes it must achieve and which business needs the solution must meet. In ISO/IEC/IEEE 29148:2018 terms it is the business requirements specification. It says little about *how*; the [SRS](SRS.md) specifies the system behavior that meets each need.
+**Purpose.** This document states why the platform exists, which business outcomes it must achieve and which business needs the solution must meet. In ISO/IEC/IEEE 29148:2018 terms it is the business requirements specification. It says little about *how*; the [SRS](SRS.md) specifies the system behavior that meets each need.
 
-**Scope of this document.** Brasa R1 (live at all four branches since 2026-06-29), the increments R1.1 and R1.2, and the boundary to R2. Audience: the owner, the Operations Director, branch managers, the Finance Controller and the delivery team.
+**Scope of this document.** the platform R1 (live at all four branches since 2026-06-29), the increments R1.1 and R1.2, and the boundary to R2. Audience: the owner, the Operations Director, branch managers, the Finance Controller and the delivery team.
 
 ## 1. Executive summary
 
-Brasa Grill (fictional) runs four grill-bowl and wrap restaurants in one EU member state: Market Hall, Station Quarter, Riverside and Campus. Before Brasa, a customer who wanted to skip the lunch queue had to phone. The counter wrote the order on paper, the kitchen guessed when to start, and walk-ins and phone orders competed at the same POS screen. Discovery in January 2026 measured the cost:
+the restaurant group runs four grill-bowl and wrap restaurants in one EU member state: Market Hall, Station Quarter, Riverside and Campus. Before the platform, a customer who wanted to skip the lunch queue had to phone. The counter wrote the order on paper, the kitchen guessed when to start, and walk-ins and phone orders competed at the same POS screen. Discovery in January 2026 measured the cost:
 
 | Pain point | Baseline (discovery, January 2026) |
 |---|---|
@@ -35,18 +35,18 @@ Brasa Grill (fictional) runs four grill-bowl and wrap restaurants in one EU memb
 | Pickup orders never collected and never paid | 4.2% |
 | Median walk-in transaction at the counter (first item to payment) | 74 s |
 
-Brasa replaces this with one platform. Customers order and pay in a mobile app or on the web for an exact pickup minute that the kitchen can meet. Staff take walk-in and dine-in orders on an iPad till. The kitchen and the counter work from live boards that show every order from every channel, with exactly what to leave out and add. Invoices are raised in each branch's account at its cloud POS and invoicing provider, so fiscal rules stay with a certified provider.
+The platform replaces this with one platform. Customers order and pay in a mobile app or on the web for an exact pickup minute that the kitchen can meet. Staff take walk-in and dine-in orders on an iPad till. The kitchen and the counter work from live boards that show every order from every channel, with exactly what to leave out and add. Invoices are raised in each branch's account at its cloud POS and invoicing provider, so fiscal rules stay with a certified provider.
 
 R1 went live at Market Hall on 2026-06-15 and at all branches on 2026-06-29. Two production incidents (INC-2026-004 and INC-2026-009) each produced a change request that is now live in R1.1. The rush-hour throttle (CR-006) went live in R1.2 on 2026-09-28. Results to date are in section 4. The illustrative model in [section 11](#11-benefits-and-costbenefit-view) shows about EUR 154,800 a year in recurring benefits against about EUR 41,000 a year in running costs. Most of it depends on new orders from customers who used to avoid the lunch queue, which is why slot accuracy and walk-in capacity are Must requirements.
 
 Three scope decisions shape the solution:
 - **Exact pickup minutes, not 15-minute slots,** calculated from the kitchen's real capacity (DEC-02, [ADR-001](../03-design/architecture/adr/ADR-001-server-authoritative-slot-reservation.md)).
-- **Fiscal receipts stay with the POS provider.** Brasa sends complete, correctly rounded lines and never signs receipts itself (DEC-10).
+- **Fiscal receipts stay with the POS provider.** the platform sends complete, correctly rounded lines and never signs receipts itself (DEC-10).
 - **No guest checkout** (CR-002 rejected). Reminders and the no-show policy need a verified email.
 
 ## 2. Business context
 
-Brasa Grill sells grill bowls, wraps, sides and drinks for takeaway, with some seating at three branches. About 27,200 orders a month across the four branches, with an average ticket of EUR 13.90. Lunch on weekdays (11:45 to 13:30) brings about 40% of daily orders at Market Hall and Station Quarter.
+the restaurant group sells grill bowls, wraps, sides and drinks for takeaway, with some seating at three branches. About 27,200 orders a month across the four branches, with an average ticket of EUR 13.90. Lunch on weekdays (11:45 to 13:30) brings about 40% of daily orders at Market Hall and Station Quarter.
 
 Four pressures make the old way of working unsustainable:
 - **Customers expect to order ahead.** In the January survey (n = 212), 58% of lunch customers said they had left the queue at least once in the last month, and 64% would use an app to order ahead.
@@ -111,7 +111,7 @@ Leading indicators tracked weekly but not objectives: share of opened pickup she
 
 | Item | Reason | What the business does instead |
 |---|---|---|
-| Delivery to the customer's address | Different operating model, couriers and packaging | Pickup only; marketplace delivery stays outside Brasa |
+| Delivery to the customer's address | Different operating model, couriers and packaging | Pickup only; marketplace delivery stays outside the platform |
 | Loyalty, vouchers and marketing messages | Not needed to meet OBJ-01 to OBJ-06; adds consent management | Considered for R2 after Q4 results |
 | Guest checkout on the web | CR-002 rejected: reminders and no-show handling need a verified email | Email sign-in takes under a minute (US-001) |
 | Order-ahead for another day | Kitchen capacity is planned per day | Today only (TBD-06) |
@@ -124,7 +124,7 @@ Leading indicators tracked weekly but not objectives: share of opened pickup she
 
 The full register, with RACI, is in [stakeholder-register-raci.md](../01-discovery/stakeholder-register-raci.md). Personas are in [personas.md](../01-discovery/personas.md).
 
-| Stakeholder group | Represented by | Primary interest | Influence | What they need from Brasa |
+| Stakeholder group | Represented by | Primary interest | Influence | What they need from the platform |
 |---|---|---|---|---|
 | Owner and Managing Director | Sponsor | Growth at lunch; margin | High: funds the project | More orders without more counter staff |
 | Operations Director | PER-06 Paul Lindqvist (ADM), Product Owner | Consistent operation of four branches | High: decides priorities | One catalog, one set of rules, numbers to steer by |
@@ -182,7 +182,7 @@ Design consequences the business has agreed to:
 | Type | Constraint |
 |---|---|
 | Regulatory | GDPR; VAT Directive and national invoice rules; food information to consumers (allergens); PSD2 strong customer authentication; national cash-register rules (through the POS provider); European Accessibility Act for the customer apps. See [compliance-mapping.md](compliance-mapping.md). |
-| Contractual | Fixed-price build of EUR 186,000 with a monthly support retainer. The cloud POS provider and the card payment provider were already contracted by Brasa Grill and are kept. |
+| Contractual | Fixed-price build of EUR 186,000 with a monthly support retainer. The cloud POS provider and the card payment provider were already contracted by the restaurant group and are kept. |
 | Schedule | Six two-week sprints (S1 from 2026-03-02 to S6 ending 2026-05-22), hardening and UAT to 2026-06-12, pilot on 2026-06-15, all branches by the end of June before the summer terrace season. |
 | Team | Delivery Manager, Business Analyst, Tech Lead, 2 Flutter developers, 1 React developer, 2 Node.js developers, QA Lead, 1 QA engineer, UX Designer. Scope is cut, not stretched. |
 | Technical | Flutter for the customer app and the till, React for the web panel and Admin Panel, Node.js with Express and MongoDB, Socket.IO for live updates ([system architecture](../03-design/architecture/system-architecture.md)). The till needs connectivity (TBD-10). |

@@ -1,4 +1,4 @@
-# Process Flows (TO-BE): Brasa
+# Process Flows (TO-BE): Multi-Branch Restaurant Ordering & POS Platform
 
 ## Document control
 
@@ -31,7 +31,7 @@ flowchart TB
     A3["Shows available minutes<br/>with reasons"]
     A4["Confirmation: number, pickup,<br/>cancel deadline"]
   end
-  subgraph S["Brasa server"]
+  subgraph S["the platform server"]
     S1["Price cart<br/>(BR-023 to BR-027)"]
     S2["Slot engine: kitchen minutes,<br/>lead time, throttle (table 3.1)"]
     S3{"Minutes still free<br/>and price unchanged?"}
@@ -80,7 +80,7 @@ flowchart TB
     W8["Press and hold cash,<br/>or card with tip"]
     W9["Tap the time field:<br/>placed unpaid"]
   end
-  subgraph SV["Brasa server"]
+  subgraph SV["the platform server"]
     W10["Earliest free minute,<br/>no lead time (BR-019)"]
     W11{"Any minute free<br/>before closing?"}
     W12["Offer next 5 minutes,<br/>flag Overbooked"]
@@ -144,7 +144,7 @@ flowchart TB
 
 ```mermaid
 flowchart TB
-  subgraph SY["Brasa worker"]
+  subgraph SY["the platform worker"]
     U1(["Order marked Ready"])
     U2{"App or web pickup,<br/>unpaid?"}
     U3["Anchor = later of pickup<br/>minute and ready time"]

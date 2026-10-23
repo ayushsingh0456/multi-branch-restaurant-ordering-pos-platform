@@ -21,7 +21,7 @@
 
 ## Purpose and scope
 
-[test-cases.csv](test-cases.csv) is the test case specification for Brasa R1 to R1.2: 90 cases that cover every functional requirement, business rule and user story, plus 14 non-functional cases. This guide explains how to read the file, summarizes coverage, and writes out the cases where the arithmetic or the timing is the point, so a reviewer can check the expected result by hand.
+[test-cases.csv](test-cases.csv) is the test case specification for the platform R1 to R1.2: 90 cases that cover every functional requirement, business rule and user story, plus 14 non-functional cases. This guide explains how to read the file, summarizes coverage, and writes out the cases where the arithmetic or the timing is the point, so a reviewer can check the expected result by hand.
 
 ## How to read the CSV
 

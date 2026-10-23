@@ -20,7 +20,7 @@
 
 ### Purpose and scope
 
-These seven personas summarize who Brasa serves and what "better" means to each of them. The Business Analyst and the UX Designer built them from 24 interviews, 8 rush-hour observation logs at Market Hall and Station Quarter, the customer survey (n = 212) and the prototype test with 12 customers and 6 staff (see [current vs future state](current-vs-future-state.md)). Each persona is a composite: no persona describes a real individual, and all names and quotes are fictional. Pain references (P1 to P12) point to the pain points in [current vs future state](current-vs-future-state.md#3-pain-points).
+These seven personas summarize who the platform serves and what "better" means to each of them. The Business Analyst and the UX Designer built them from 24 interviews, 8 rush-hour observation logs at Market Hall and Station Quarter, the customer survey (n = 212) and the prototype test with 12 customers and 6 staff (see [current vs future state](current-vs-future-state.md)). Each persona is a composite: no persona describes a real individual, and all names and quotes are fictional. Pain references (P1 to P12) point to the pain points in [current vs future state](current-vs-future-state.md#3-pain-points).
 
 The team uses the personas to write and order user stories, to choose UAT participants, and to settle design debates ("could Amir do this with a queue of eight people in front of him?").
 
@@ -76,7 +76,7 @@ The team uses the personas to write and order user stories, to choose UAT partic
 
 At 11:50 Clara checks her calendar: her meeting ends at 12:20. She calls Market Hall at 11:58 and gets a busy tone twice. At 12:24 she joins a queue of 14 people. The counter writes "no onion" on a slip; the kitchen reads the slip after two phone orders that arrived later but were written first. She gets her bowl at 12:41, with coriander, and eats at her desk.
 
-### Representative quotes (fictional)
+### Representative quotes
 
 > "I don't need it fast. I need it at the time you said."
 
@@ -128,7 +128,7 @@ Stories: US-001, US-006, US-011, US-019 to US-023, US-025, US-026, US-030, US-03
 - When a friend has an allergy, I want to see the allergens of each item with my changes, so that I do not have to ask at a busy counter.
 - When the seminar is canceled, I want to cancel the order before a deadline I can see.
 
-### Representative quotes (fictional)
+### Representative quotes
 
 > "Let me look first. If I like it, I'll give you my email."
 
@@ -156,7 +156,7 @@ Stories: US-002, US-017, US-024. Orders CP-0057, CP-0061 and CP-0070 in the test
 | Work environment | Counter at Market Hall, weekday lunch and two evenings. At 12:30 he faces a queue of 10 to 15 people, a ringing phone and the kitchen calling out finished orders. |
 | Devices | Today a shared POS screen with long product lists and a free-text note field; tomorrow the iPad till in landscape. |
 | Tech comfort | Medium to high; fast with touch screens; dislikes typing. |
-| Experience | 3 years at Brasa; trains new counter staff. Board color Teal, initials AH. |
+| Experience | 3 years at the platform; trains new counter staff. Board color Teal, initials AH. |
 
 ### Goals
 
@@ -183,7 +183,7 @@ Stories: US-002, US-017, US-024. Orders CP-0057, CP-0061 and CP-0070 in the test
 
 At 12:15 Amir has 11 people in the queue. The phone rings; he takes a 5-item order for 12:45 on a paper pad while the queue waits. A walk-in wants a wrap without pickled chili and with extra chicken; the POS screen needs four screens and a typed note. At 12:40 a phone customer arrives early. Amir cannot tell whether the order has been started, and goes to the kitchen to ask. Median walk-in time that day: 74 seconds.
 
-### Representative quotes (fictional)
+### Representative quotes
 
 > "Give me big buttons and one queue. That's it."
 
@@ -211,7 +211,7 @@ Stories: US-004, US-031, US-032, US-036, US-037, US-041. Amir's walk-in MH-0134 
 | Work environment | Leads the line at Market Hall with two cooks at lunch: grill, assembly and a fryer. Hot, loud, gloves on. Board color Orange, initials SR. |
 | Devices | Paper tickets on a rail today; a 24-inch kitchen board tomorrow. |
 | Tech comfort | Medium; does not want to touch a screen during the rush. |
-| Experience | 15 years in kitchens; joined Brasa when Market Hall opened. One of her cooks cannot tell red from green. |
+| Experience | 15 years in kitchens; joined the platform when Market Hall opened. One of her cooks cannot tell red from green. |
 
 ### Goals
 
@@ -233,7 +233,7 @@ Stories: US-004, US-031, US-032, US-036, US-037, US-041. Amir's walk-in MH-0134 
 - When an order is due at 12:31, I want to see it at the moment its kitchen minutes start, so that it is fresh and on time.
 - When the fryer is down, I want new pickup times to stop until it is fixed, so that we do not make promises we cannot keep.
 
-### Representative quotes (fictional)
+### Representative quotes
 
 > "Show me what to make next. Big. Not a list of everything."
 
@@ -261,7 +261,7 @@ Stories: US-038, US-040.
 | Work environment | Manages Station Quarter, next to the railway station: the busiest lunch and a commuter evening peak. Works the floor, the till and the boards. Board color Blue, initials MK. |
 | Devices | Admin Panel on the counter board PC and her phone; the till when the counter is short. |
 | Tech comfort | Medium to high. |
-| Experience | 8 years in restaurants, 3 as a manager at Brasa. |
+| Experience | 8 years in restaurants, 3 as a manager at the platform. |
 
 ### Goals
 
@@ -284,7 +284,7 @@ Stories: US-038, US-040.
 - When a customer does not collect, I want reminders to go out and a fair consequence to follow, so that my staff do not chase people.
 - When a walk-in is at the counter at the rush, I want a kitchen minute to be available for them.
 
-### Representative quotes (fictional)
+### Representative quotes
 
 > "Online is good until it eats the whole lunch. Then my counter is a waiting room."
 
@@ -308,7 +308,7 @@ Stories: US-009, US-012, US-013, US-018, US-027, US-028, US-034, US-039, US-042.
 
 | Aspect | Detail |
 |---|---|
-| Work environment | Head office, visits each branch weekly. Owns the menu, the opening hours and the operating rules of all four branches, and is the Product Owner for Brasa. |
+| Work environment | Head office, visits each branch weekly. Owns the menu, the opening hours and the operating rules of all four branches, and is the Product Owner for the platform. |
 | Devices | Laptop; Admin Panel. |
 | Tech comfort | High; works from spreadsheets today. |
 
@@ -326,7 +326,7 @@ Stories: US-009, US-012, US-013, US-018, US-027, US-028, US-034, US-039, US-042.
 | No data on how many customers give up on the queue | P1 |
 | Shared logins: no accountability for voids | P10 |
 
-### Representative quotes (fictional)
+### Representative quotes
 
 > "If I can't measure it every Monday, it didn't happen."
 
@@ -356,7 +356,7 @@ Stories: US-003, US-005, US-007, US-008, US-010, US-014, US-015, US-016, US-029.
 
 1. Exactly one correct invoice, from the branch's POS account, for every paid order.
 2. Card payments, invoices and refunds that agree every day without manual matching.
-3. VAT computed the same way in Brasa and in the POS.
+3. VAT computed the same way in the platform and in the POS.
 
 ### Frustrations
 
@@ -365,7 +365,7 @@ Stories: US-003, US-005, US-007, US-008, US-010, US-014, US-015, US-016, US-029.
 | Removal credits and phone prices make the till total differ from the price list | P11 |
 | Refunds and voids carry no name or reason | P10 |
 
-### Representative quotes (fictional)
+### Representative quotes
 
 > "One cent is not a rounding error. One cent is a difference I have to explain."
 
@@ -373,7 +373,7 @@ Stories: US-003, US-005, US-007, US-008, US-010, US-014, US-015, US-016, US-029.
 
 | Measure | Baseline | Target |
 |---|---|---|
-| Invoices whose VAT differs from Brasa's total by a cent | 6% in UAT before DEC-11 | 0 (BR-025) |
+| Invoices whose VAT differs from the platform's total by a cent | 6% in UAT before DEC-11 | 0 (BR-025) |
 | Days with a clean nightly reconciliation | Manual check | 30 consecutive days in Q4 (FR-PAY-10) |
 | Duplicate charges reaching a customer | n/a | 0, caught within 5 minutes if one occurs (NFR-OBS-02) |
 

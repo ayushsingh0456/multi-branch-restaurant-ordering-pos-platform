@@ -18,7 +18,7 @@
 
 ### Purpose and scope
 
-This scan answers two questions for the sponsor: how do comparable lunch businesses let customers order ahead, and should Brasa Grill build its own platform or buy one? It covers four anonymized competitors near Brasa's branches and four solution options. Competitors are described by type, never by name. Vendor fees are the quotes Brasa Grill received in January 2026; like every figure in this case study, they are fictional.
+This scan answers two questions for the sponsor: how do comparable lunch businesses let customers order ahead, and should the restaurant group build its own platform or buy one? It covers four anonymized competitors near the platform's branches and four solution options. Competitors are described by type, never by name. Vendor fees are the quotes the restaurant group received in January 2026; like every figure in this case study, they are fictional.
 
 ## 1. Context from discovery
 
@@ -49,15 +49,15 @@ The Business Analyst and the UX Designer mystery-shopped each competitor twice a
 | Loyalty | Points | Marketplace offers | No | Stamp card in the app |
 | Counter speed (walk-in, observed) | 55 s | 70 s | 80 s | 40 s at the kiosk |
 
-### What the benchmark means for Brasa
+### What the benchmark means for Multi-Branch Restaurant Ordering & POS Platform
 
 | Observation | Implication | Where it went |
 |---|---|---|
 | Competitor A's 15-minute slots showed "full" at 12:30 while its line had capacity, and Competitor C's uncapped slots were late | Neither slot model reflects kitchen capacity | Kitchen-minute model (DEC-02, ADR-001, BR-011, BR-012) |
 | No competitor shows when an order can still be canceled | A visible deadline is a cheap differentiator and reduces disputes | FR-ORD-08, FR-ORD-11, BR-030 |
-| Only Competitor A shows allergens for the item as customized | Brasa should at least match it; later confirmed as a legal need for distance sales | CR-001 (FR-MNU-07, BR-028) |
-| Three of four offer guest checkout | Considered and rejected for Brasa: reminders and the no-show policy need a verified email | CR-002 (rejected); FR-IAM-03 guest browsing instead |
-| Competitor B's marketplace takes the customer relationship: no email, no reorder outside the marketplace | Brasa wants its own customer list and reorder | OBJ-01; FR-ORD-12 |
+| Only Competitor A shows allergens for the item as customized | The platform should at least match it; later confirmed as a legal need for distance sales | CR-001 (FR-MNU-07, BR-028) |
+| Three of four offer guest checkout | Considered and rejected for the platform: reminders and the no-show policy need a verified email | CR-002 (rejected); FR-IAM-03 guest browsing instead |
+| Competitor B's marketplace takes the customer relationship: no email, no reorder outside the marketplace | The platform wants its own customer list and reorder | OBJ-01; FR-ORD-12 |
 | Only Competitor C lets customers pay at the counter | Paying at pickup matters to customers who order from a work computer | FR-ORD-07 (pay online or at the counter) |
 | Loyalty is common | Not needed for OBJ-01 to OBJ-06; adds consent management | Out of scope for R1 (BRD section 5.3) |
 
@@ -68,7 +68,7 @@ The Business Analyst and the UX Designer mystery-shopped each competitor twice a
 | O1 Marketplace for pickup | List the branches on a food marketplace and take pickup orders through its app | 0 | Commission of 13% on online pickup orders: 97,848 orders x 13.90 x 13% = 176,811 | About 530,400 |
 | O2 POS provider's ordering add-on | Web ordering page and app from the existing cloud POS provider | 2,000 setup | EUR 79 per branch a month (3,792) plus EUR 0.15 per order (14,677) = 18,469 | About 57,400 |
 | O3 White-label ordering software | A restaurant ordering product with branded apps, connected to the POS | 6,000 setup | EUR 249 per branch a month (11,952) plus 1.5% of online sales (20,401) = 32,353 | About 103,100 |
-| O4 Custom build (Brasa) | Own apps, till, boards and backend, integrated with the existing POS and card payment providers | 186,000 build | Hosting, email, POS integration, monitoring and support retainer: 41,040 | About 309,100 |
+| O4 Custom build (the platform) | Own apps, till, boards and backend, integrated with the existing POS and card payment providers | 186,000 build | Hosting, email, POS integration, monitoring and support retainer: 41,040 | About 309,100 |
 
 Online volumes use the target of 30% digital orders (97,848 a year) from the BRD cost/benefit model. "Do nothing" (a second phone line and a pager system) was costed at EUR 9,000 and discarded early because it addresses none of OBJ-01, OBJ-03 or OBJ-04.
 

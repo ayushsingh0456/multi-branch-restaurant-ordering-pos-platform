@@ -1,4 +1,4 @@
-# Definition of Ready and Definition of Done: Brasa
+# Definition of Ready and Definition of Done: Multi-Branch Restaurant Ordering & POS Platform
 
 ## Document control
 
@@ -11,7 +11,7 @@
 | Last updated | 2026-09-04 |
 | Reviewers | Product Owner (Operations Director); Tech Lead; Delivery Manager |
 
-**Purpose and scope.** The checks a story must pass before it enters a sprint (Ready) and before it counts as complete (Done), for every Brasa story and change request. Items added after go-live name the incident or change request that taught the team the lesson.
+**Purpose and scope.** The checks a story must pass before it enters a sprint (Ready) and before it counts as complete (Done), for every the platform story and change request. Items added after go-live name the incident or change request that taught the team the lesson.
 
 ## 1. Definition of Ready
 
@@ -21,7 +21,7 @@ A story is Ready when all of the following hold. The BA checks them in refinemen
 |---|---|---|
 | R1 | The story follows the INVEST checklist and has a persona from [personas.md](../01-discovery/personas.md) | A story for "the user" hides which app, role and branch scope apply |
 | R2 | It names its FRs and business rules, and they exist in the baselined SRS | Traceability is generated; an unknown ID fails the build |
-| R3 | Acceptance criteria are Gherkin scenarios with IDs (US-NNN-ACn), including the boundary values of every rule it touches | Most Brasa defects were at boundaries: 15:00 before pickup, 1.725 tips, 13:30 rush end |
+| R3 | Acceptance criteria are Gherkin scenarios with IDs (US-NNN-ACn), including the boundary values of every rule it touches | Most the platform defects were at boundaries: 15:00 before pickup, 1.725 tips, 13:30 rush end |
 | R4 | Every time-dependent scenario states the server time and the branch | Slots and boards depend on the server clock (BR-020) |
 | R5 | Money examples use integer-cent arithmetic and are checked by a second person | WE-1 and DEF-031 |
 | R6 | Wireframes or UI notes exist for new screens; messages are written in full (problem and fix) | NFR-USE-03 |

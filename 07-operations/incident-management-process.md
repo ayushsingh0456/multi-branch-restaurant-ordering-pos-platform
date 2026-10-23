@@ -1,4 +1,4 @@
-# Incident Management Process: Brasa
+# Incident Management Process: Multi-Branch Restaurant Ordering & POS Platform
 
 ## Document control
 
@@ -17,11 +17,11 @@
 | 1.1 | 2026-07-24 | After INC-2026-004: "branch working from a stale screen" is SEV-2; till fallback runbook; no-connected-client alert |
 | 1.2 | 2026-08-28 | After INC-2026-009: any report of a double charge is SEV-2 until disproved; duplicate-charge runbook; BA impact analysis named as a step |
 
-**Purpose and scope.** How production incidents in Brasa are detected, classified, handled, communicated and learned from, across the four apps, the API and the provider integrations. The process is blameless: reviews look for the conditions that made an error possible, never for someone to blame.
+**Purpose and scope.** How production incidents in the platform are detected, classified, handled, communicated and learned from, across the four apps, the API and the provider integrations. The process is blameless: reviews look for the conditions that made an error possible, never for someone to blame.
 
 ## 1. Severity
 
-| Severity | Definition | Brasa examples | Response |
+| Severity | Definition | The platform examples | Response |
 |---|---|---|---|
 | SEV-1 | Ordering or payment is down at two or more branches, or money or personal data is wrong at scale | API down at lunch; card payments failing everywhere; personal data shown to the wrong customer | Acknowledge 10 min; Incident Commander 15 min; updates every 30 min; PIR required |
 | SEV-2 | A core flow is degraded at a branch with a costly workaround, or any double charge | A till or board working from stale data (INC-2026-004); customers charged twice (INC-2026-009) | Acknowledge 15 min; IC 30 min; updates every 60 min; PIR required |

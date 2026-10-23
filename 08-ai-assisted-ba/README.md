@@ -19,7 +19,7 @@
 
 ### Purpose and scope
 
-This page explains how the Business Analyst used AI assistants on Brasa: what the assistants were allowed to do, what the BA never delegated, and what review of their output caught. It covers six activities:
+This page explains how the Business Analyst used AI assistants on the platform: what the assistants were allowed to do, what the BA never delegated, and what review of their output caught. It covers six activities:
 - synthesis of discovery interviews and observations;
 - first-draft user stories and Gherkin;
 - test ideas for numeric and time rules;
@@ -47,7 +47,7 @@ In short, AI made the BA faster at first drafts and at finding inconsistencies a
 Approved by the Operations Director and the Data Protection Officer on 2026-01-16 and applied to every use.
 
 1. **No personal data in prompts, ever.** No customer names, emails, phone numbers, order histories, staff rotas or screenshots of production screens. Interview notes were de-identified by the BA before synthesis: role and branch only, no names.
-2. **Synthetic data only.** Examples use the repo's fictional test data: customers such as CUS-1001 Clara Mendes, emails at example.com and brasa.example, and orders such as MH-0142 and SQ-0401 from [test-data](../06-quality/test-data/README.md).
+2. **Synthetic data only.** Examples use the repo's fictional test data: customers such as CUS-1001 Clara Mendes, emails at example.com and restaurant.example, and orders such as MH-0142 and SQ-0401 from [test-data](../06-quality/test-data/README.md).
 3. **No commercial secrets.** Supplier prices, margins and the build contract stay out of prompts. The cost/benefit model in the BRD was built without an assistant.
 4. **Approved tools only.** The team used the company-approved enterprise AI assistant with prompt retention off and no training on inputs. Personal accounts and browser extensions were not allowed.
 5. **Every output is reviewed by the BA before anyone else sees it.** AI output is a draft, never a deliverable.

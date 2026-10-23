@@ -1,23 +1,23 @@
-# Brasa API contract (OpenAPI 3.1). Fictional case study; synthetic data only.
+# Multi-Branch Restaurant Ordering & POS Platform API contract (OpenAPI 3.1). Fictional case study; synthetic data only.
 openapi: 3.1.0
 info:
-  title: Brasa API
+  title: the platform API
   version: 1.4.0
-  summary: One API for the Brasa customer apps, the iPad till and the Admin Panel (fictional case study).
-  description: Contract-first REST API for Brasa, the fictional pickup-ordering and till platform of Brasa Grill (fictional). All data is synthetic.
+  summary: One API for the platform customer apps, the iPad till and the Admin Panel (fictional case study).
+  description: Contract-first REST API for the platform, the fictional pickup-ordering and till platform of the restaurant group. All data is synthetic.
     Money is integer euro cents including VAT. Times are the branch's local time unless a full date-time is given. Errors use RFC 9457 problem
     details with the codes in api-guidelines.md. Every operation carries x-requirements (SRS IDs) and x-roles. Live updates are Socket.IO events,
     described in realtime-events.md.
   contact:
-    name: Business Analyst, Brasa delivery team
+    name: Business Analyst, the platform delivery team
   license:
     name: CC BY 4.0
     identifier: CC-BY-4.0
 servers:
-- url: https://api.brasa.example/v1
-  description: Production (fictional)
-- url: https://staging-api.brasa.example/v1
-  description: Staging (fictional)
+- url: https://api.restaurant.example/v1
+  description: Production
+- url: https://staging-api.restaurant.example/v1
+  description: Staging
 security:
 - bearerAuth: []
 tags:
@@ -126,7 +126,7 @@ paths:
             schema:
               $ref: '#/components/schemas/StaffSignIn'
             example:
-              email: amir.haddad@brasa.example
+              email: amir.haddad@restaurant.example
               password: '********'
               client: TILL
               deviceId: till-mh-1
@@ -166,7 +166,7 @@ paths:
             schema:
               $ref: '#/components/schemas/PasswordResetRequest'
             example:
-              email: marta.kowalska@brasa.example
+              email: marta.kowalska@restaurant.example
       responses:
         '202':
           description: Accepted. Same response whether or not the email exists.
@@ -354,7 +354,7 @@ paths:
               $ref: '#/components/schemas/EmployeeCreate'
             example:
               name: Jonas Berg
-              email: jonas.berg@brasa.example
+              email: jonas.berg@restaurant.example
               role: COUNTER_STAFF
               branchIds:
               - LOC-01
@@ -1611,7 +1611,7 @@ paths:
                   grossCents: 290
                   vatCents: 48
                   netCents: 242
-                pdfUrl: https://files.brasa.example/invoices/RE-2026-018422.pdf
+                pdfUrl: https://files.restaurant.example/invoices/RE-2026-018422.pdf
         '401':
           $ref: '#/components/responses/Unauthorized'
         '403':
@@ -2866,7 +2866,7 @@ components:
           - ONLINE_RETRY
           - CASH
           - COUNTER_CARD
-          - OUTSIDE_BRASA
+          - OUTSIDE_RESTAURANT
         reference:
           type: string
           maxLength: 80
@@ -2920,7 +2920,7 @@ components:
           schema:
             $ref: '#/components/schemas/Problem'
           example:
-            type: https://api.brasa.example/problems/validation-failed
+            type: https://api.restaurant.example/problems/validation-failed
             title: The request is not valid.
             status: 400
             code: VALIDATION_FAILED
@@ -2931,7 +2931,7 @@ components:
           schema:
             $ref: '#/components/schemas/Problem'
           example:
-            type: https://api.brasa.example/problems/auth-failed
+            type: https://api.restaurant.example/problems/auth-failed
             title: Sign in again.
             status: 401
             code: AUTH_FAILED
@@ -2942,7 +2942,7 @@ components:
           schema:
             $ref: '#/components/schemas/Problem'
           example:
-            type: https://api.brasa.example/problems/branch-not-assigned
+            type: https://api.restaurant.example/problems/branch-not-assigned
             title: You do not work at this branch.
             status: 403
             code: BRANCH_NOT_ASSIGNED
@@ -2953,7 +2953,7 @@ components:
           schema:
             $ref: '#/components/schemas/Problem'
           example:
-            type: https://api.brasa.example/problems/not-found
+            type: https://api.restaurant.example/problems/not-found
             title: Not found.
             status: 404
             code: NOT_FOUND
@@ -2964,7 +2964,7 @@ components:
           schema:
             $ref: '#/components/schemas/Problem'
           example:
-            type: https://api.brasa.example/problems/slot-taken
+            type: https://api.restaurant.example/problems/slot-taken
             title: 12:31 was just taken. Choose another time.
             status: 409
             code: SLOT_TAKEN
@@ -2975,7 +2975,7 @@ components:
           schema:
             $ref: '#/components/schemas/Problem'
           example:
-            type: https://api.brasa.example/problems/validation-failed
+            type: https://api.restaurant.example/problems/validation-failed
             title: Some fields need attention.
             status: 422
             code: VALIDATION_FAILED
@@ -2986,7 +2986,7 @@ components:
           schema:
             $ref: '#/components/schemas/Problem'
           example:
-            type: https://api.brasa.example/problems/otp-rate-limited
+            type: https://api.restaurant.example/problems/otp-rate-limited
             title: Try again later.
             status: 429
             code: OTP_RATE_LIMITED

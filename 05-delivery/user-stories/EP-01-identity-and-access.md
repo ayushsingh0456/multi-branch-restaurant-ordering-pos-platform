@@ -42,7 +42,7 @@ Version 1.3 aligns US-007 with CR-003 (SRS v1.3): an unpaid no-show now sets Pre
 | US-007 | Review, suspend and reinstate customers | PER-06 Paul Lindqvist (ADM) | Must | 3 | S5 |
 | **Total** | | | | **26** | |
 
-Shared test data: customer Clara Mendes (`clara.mendes@example.com`, CUS-1001); customer Tomasz Nowak (`tomasz.nowak@example.com`, CUS-1002); Counter Staff Amir Haddad (`amir.haddad@brasa.example`, initials AH, color Teal, assigned LOC-01 Market Hall); Manager Marta Kowalska (`marta.kowalska@brasa.example`, assigned LOC-02 Station Quarter); Administrator Paul Lindqvist (`paul.lindqvist@brasa.example`). All data is synthetic ([test data](../../06-quality/test-data/README.md)).
+Shared test data: customer Clara Mendes (`clara.mendes@example.com`, CUS-1001); customer Tomasz Nowak (`tomasz.nowak@example.com`, CUS-1002); Counter Staff Amir Haddad (`amir.haddad@restaurant.example`, initials AH, color Teal, assigned LOC-01 Market Hall); Manager Marta Kowalska (`marta.kowalska@restaurant.example`, assigned LOC-02 Station Quarter); Administrator Paul Lindqvist (`paul.lindqvist@restaurant.example`). All data is synthetic ([test data](../../06-quality/test-data/README.md)).
 
 ## Stories
 
@@ -103,7 +103,7 @@ Scenario: US-001-AC4 A new code replaces the old one and requests are limited
   And when she has requested 5 codes since 11:41:00 a sixth request at 12:20:00 is refused with "You have asked for 5 codes in the last hour. Try again at 12:41 or use a different email."
 
 Scenario: US-001-AC5 A staff email gets the neutral response and no code
-  Given amir.haddad@brasa.example belongs to a Counter Staff account
+  Given amir.haddad@restaurant.example belongs to a Counter Staff account
   When it is entered in the customer app
   Then the app shows the same "Check your email for a 6-digit code" screen as for any address
   And no code is sent and no customer account is created
@@ -135,7 +135,7 @@ Scenario: US-001-AC6 A suspended customer cannot get a code
 | Dependencies | US-019 |
 
 **Story**
-As a first-time visitor, I want to look at a branch's menu, prices and allergens before I sign in, so that I can decide whether Brasa suits my team before giving my email.
+As a first-time visitor, I want to look at a branch's menu, prices and allergens before I sign in, so that I can decide whether the platform suits my team before giving my email.
 
 **Acceptance criteria**
 
@@ -280,8 +280,8 @@ Scenario Outline: US-004-AC4 A till session lasts at most 14 hours
 
 Scenario: US-004-AC5 Two iPads with the same account keep separate drafts
   Given Amir is signed in on Till 1 and Till 2 at Market Hall
-  When he adds a Chicken Wrap on Till 1 and a Beef Brasa Bowl on Till 2
-  Then Till 1 shows only the Chicken Wrap and Till 2 only the Beef Brasa Bowl
+  When he adds a Chicken Wrap on Till 1 and a Beef Grill Bowl on Till 2
+  Then Till 1 shows only the Chicken Wrap and Till 2 only the Beef Grill Bowl
 ```
 
 **Notes**
@@ -308,7 +308,7 @@ As an Administrator, I want to create staff accounts with a fixed role, assigned
 
 ```gherkin
 Scenario: US-005-AC1 Create a Counter Staff account
-  When Paul creates "Jonas Berg", jonas.berg@brasa.example, role Counter Staff, branch Market Hall, color Purple, initials JB
+  When Paul creates "Jonas Berg", jonas.berg@restaurant.example, role Counter Staff, branch Market Hall, color Purple, initials JB
   Then the account is Active and Jonas can sign in to the till at Market Hall
   And Jonas cannot sign in to the Admin Panel
 

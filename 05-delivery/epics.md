@@ -1,4 +1,4 @@
-# Epics: Brasa
+# Epics: Multi-Branch Restaurant Ordering & POS Platform
 
 ## Document control
 
@@ -11,7 +11,7 @@
 | Last updated | 2026-09-18 |
 | Reviewers | Product Owner (Operations Director); Delivery Manager; Tech Lead; QA Lead |
 
-**Purpose and scope.** This is the index of the six epics that deliver Brasa R1 to R1.2: goal, business need, objectives, size and the stories in each. The stories, with INVEST metadata and Gherkin acceptance criteria, are in the [user-stories](user-stories/) folder. The same epics and stories are in [jira-import.csv](jira-import.csv), generated from the story files.
+**Purpose and scope.** This is the index of the six epics that deliver the platform R1 to R1.2: goal, business need, objectives, size and the stories in each. The stories, with INVEST metadata and Gherkin acceptance criteria, are in the [user-stories](user-stories/) folder. The same epics and stories are in [jira-import.csv](jira-import.csv), generated from the story files.
 
 ## 1. Overview
 
@@ -113,7 +113,7 @@ US-021 carries worked example WE-1. US-022 and US-028 changed in R1.1 (CR-003).
 
 ### EP-05 Payments & Invoicing
 
-**Goal.** Take every payment exactly once, through channels that keep card data out of Brasa, and give every paid order exactly one valid invoice from the branch's POS account.
+**Goal.** Take every payment exactly once, through channels that keep card data out of the platform, and give every paid order exactly one valid invoice from the branch's POS account.
 
 | Story | Title | Priority | Points | Sprint |
 |---|---|---|---|---|

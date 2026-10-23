@@ -1,4 +1,4 @@
-# Non-Functional Requirements: Brasa
+# Non-Functional Requirements: Multi-Branch Restaurant Ordering & POS Platform
 
 ## Document control
 
@@ -11,7 +11,7 @@
 | Last updated | 2026-09-18 |
 | Reviewers | Tech Lead; QA Lead; Product Owner (Operations Director); Data Protection Officer (external); UX Designer |
 
-**Purpose and scope.** This document specifies the 28 quality requirements that Brasa must meet, classified by the product quality model of ISO/IEC 25010:2011. Each NFR has a measurable target, a verification method and the functional requirements or business rules it constrains. The [SRS](SRS.md#34-quality-requirements) summarizes the ones that most shape the design.
+**Purpose and scope.** This document specifies the 28 quality requirements that the platform must meet, classified by the product quality model of ISO/IEC 25010:2011. Each NFR has a measurable target, a verification method and the functional requirements or business rules it constrains. The [SRS](SRS.md#34-quality-requirements) summarizes the ones that most shape the design.
 
 ## 1. Conventions
 
@@ -63,7 +63,7 @@
 |---|---|---|---|---|
 | NFR-SEC-01 | All traffic shall be encrypted and sessions protected. | TLS 1.2 or later with HSTS on every endpoint; access tokens valid 15 min with rotating refresh tokens; Socket.IO connections authenticated with the same token | Inspection and test: TLS scan, token tests | FR-IAM-01, FR-IAM-04, FR-IAM-05 |
 | NFR-SEC-02 | The API, web panel and Admin Panel shall meet a recognized security baseline. | OWASP ASVS 4.0.3 Level 2 checklist complete; external penetration test before R1 and yearly; no open Critical or High finding at release | Inspection and test | All |
-| NFR-SEC-03 | Card data shall never enter Brasa systems. | Online payments only through the provider's hosted checkout; counter payments only through the provider's card reader SDK; Brasa stores provider references, brand and last 4 digits only; PCI DSS self-assessment SAQ A for e-commerce | Inspection: data-flow review and SAQ | FR-PAY-01, FR-PAY-04 |
+| NFR-SEC-03 | Card data shall never enter the platform systems. | Online payments only through the provider's hosted checkout; counter payments only through the provider's card reader SDK; the platform stores provider references, brand and last 4 digits only; PCI DSS self-assessment SAQ A for e-commerce | Inspection: data-flow review and SAQ | FR-PAY-01, FR-PAY-04 |
 | NFR-SEC-04 | Secrets for external services shall be protected. | Provider API keys, POS OAuth tokens and SMTP credentials encrypted at rest with a managed key service, never returned to any client, rotated at least yearly and on staff exit | Inspection | FR-BRN-05, IF-01 to IF-06 |
 | NFR-SEC-05 | Staff actions that change money, menus, timings or access shall be traceable. | Audit event (actor, action, entity, before and after values, device, time) for cancellations, refunds, price and VAT changes, timings, busy windows, delay releases, employee and customer status changes; kept 2 years; append-only | Test: audit tests per action | FR-IAM-07, FR-IAM-08, FR-TIL-06, FR-BRN-09 |
 
